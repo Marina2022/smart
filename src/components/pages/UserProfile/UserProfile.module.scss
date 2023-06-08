@@ -1,0 +1,43 @@
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-top: 80px;
+
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 790px;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainContent {
+  text-align: center;
+  width: 265px;
+}
+
+.donated {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1F2937;
+  margin-bottom: 32px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9CA3AF;
+}
+
+.switchToExpertBtn {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #528FD2;
+  cursor: pointer;
+}

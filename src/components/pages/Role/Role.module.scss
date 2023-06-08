@@ -1,0 +1,61 @@
+.roleWrapper {
+  margin: 130px auto 32px;
+  width: 290px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1F2937;
+  margin-bottom: 32px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  padding-left: 114px;
+  position: relative;
+  margin-bottom: 28px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
+  &:after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 72px;
+    top: 0;
+    background-image: url(../../../assets/radio-unchecked.svg);
+  }
+}
+
+.radio {
+  display: none;
+}
+
+.radio:checked + .label:after {
+  background-image: url(../../../assets/radio-checked.svg);
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 25px;
+  width: 144px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 44px auto;
+  border: 1px solid #CB00DD;
+  color: #CB00DD;
+
+  &:disabled {
+    border: 1px solid #9CA3AF;
+    opacity: 0.5;
+    color: #9CA3AF;
+  }
+}

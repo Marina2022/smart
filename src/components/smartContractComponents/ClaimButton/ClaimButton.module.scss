@@ -1,0 +1,49 @@
+.claimBtn {
+  width: 148px;
+  height: 36px;
+  background: #CB00DD;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  margin-left: 40px;
+  pointer-events: none;
+
+  &:disabled {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #9CA3AF;
+    border: 1px solid #9CA3AF;
+    background-color: #fff;
+  }
+}
+
+.tooltip {
+  width: 171px;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  position: absolute;
+  top: -50px;
+  right: 25px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.buttonWrapper {
+  //position: relative;
+}

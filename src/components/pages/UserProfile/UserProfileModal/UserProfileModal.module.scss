@@ -1,0 +1,71 @@
+.modal {
+  width: 424px;
+  height: 224px;
+  padding: 24px 16px;
+  background: #FFFFFF;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  position: absolute;
+  top: 198px;
+  right: 33px;
+  z-index: 2;
+}
+
+.title {
+  width: 289px;
+  margin: 28px auto 12px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #1F2937;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #182233;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.buttonsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.switchBtn {
+  cursor: pointer;
+  width: 188px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #1F2937;
+  border-radius: 25px;
+  border: 1px solid #9CA3AF;
+}
+
+.noBtn {
+  cursor: pointer;
+  width: 188px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #CB00DD;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}

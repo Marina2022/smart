@@ -1,0 +1,28 @@
+.expertDonations {
+  display: flex;
+  width: 210px;
+  justify-content: space-between;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F2937;
+
+  margin-inline: auto;
+  margin-bottom: 40px;
+}
+
+.expertDonationsValue {
+  font-family: 'Cabin', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  color: #1F2937;
+  margin-bottom: 10px;
+}
+
+.expertDonationsDonates {
+  border-right: 1px solid #D1D5DB;
+  padding-right: 26px;
+}

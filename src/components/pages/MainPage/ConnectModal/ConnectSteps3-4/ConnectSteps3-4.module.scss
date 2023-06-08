@@ -1,0 +1,35 @@
+.step3_4 {
+  padding: 46px 24px 24px 24px;
+}
+
+.walletTitle {
+  background: linear-gradient(93.06deg, #FC2EF5 8.21%, #5489D8 50.57%, #2CFF64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Cabin', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 48px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 23px;
+}
+
+.progress {
+  width: 214px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.line {
+  width: 166px;
+  height: 2px;
+}

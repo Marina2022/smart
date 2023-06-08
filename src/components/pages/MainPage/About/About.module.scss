@@ -1,0 +1,52 @@
+.mainTitle {
+  font-family: 'Cabin', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 56px;
+  max-width: 690px;
+  margin: 78px auto 20px;
+  text-align: center;
+  color: #36B3B5;
+}
+
+.aboutText {
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #212529;
+  max-width: 560px;
+  margin: 0 auto 98px;
+}
+
+.aboutFeatures {
+  width: 480px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 78px;
+}
+
+.aboutFeaturesItem {
+  text-align: center;
+}
+
+.featureValue {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 24px;
+  color: #1F2937;
+  margin-bottom: 26px;
+}
+
+.featureName {
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.featureImage {
+  width: 15.75px;
+  height: 15.75px;
+  margin-right: 5px;
+}

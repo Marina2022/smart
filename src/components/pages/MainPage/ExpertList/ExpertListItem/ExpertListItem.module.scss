@@ -1,0 +1,52 @@
+.expertsListItem {
+  position: relative;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #F3F4F6;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F2937;
+  font-weight: 600;
+}
+
+.expertsAva {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.cellNumber {
+  width: 2%;
+}
+
+.cellName {
+  width: 35%;
+  display: flex;
+  align-items: center;
+}
+
+.cellContributors {
+  width: 20%;
+}
+
+.cellDonations {
+  width: 25%;
+
+}
+
+.cellDonationsSum {
+  min-width: 50px;
+  display: inline-block;
+}
+
+.cellDonationsPlus {
+  color: #11D645;
+  margin-left: 11px;
+}
+
+.cellLink {
+  cursor: pointer;
+}
