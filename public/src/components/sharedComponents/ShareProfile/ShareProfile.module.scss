@@ -1,0 +1,38 @@
+.wrapper {
+  cursor: pointer;
+  width: 116px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #1F2937;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.shareProfile {
+  position: relative;
+}
+
+
+.tooltip {
+  width: 92px;
+  height: 32px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  position: absolute;
+  top: -20px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}

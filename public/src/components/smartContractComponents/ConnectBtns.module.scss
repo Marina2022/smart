@@ -1,0 +1,13 @@
+.connectBtn {
+  cursor: pointer;
+  width: 182px;
+  height: 54px;
+  border: 1px solid #CB00DD;
+  border-radius: 25px;
+  color: #CB00DD;
+
+  &:disabled {
+    color: #9CA3AF;
+    border-color: #9CA3AF;
+  }
+}
