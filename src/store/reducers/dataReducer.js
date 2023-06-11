@@ -125,8 +125,14 @@ const dataReducer = createSlice({
       state.donateInputValue = action.payload
     },
 
+
     setSuccessfullyDonated: (state, action) => {
       state.successfullyDonated = action.payload
+      if (state.successfullyDonated) {
+        state.successfullyDonated = state.successfullyDonated + action.payload
+      } else {
+        state.successfullyDonated = action.payload
+      }
     },
 
     setIsUserRegistered: (state, action) => {
