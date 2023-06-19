@@ -1,6 +1,6 @@
 import Header from "../Header/Header";
 import MainPage from "../../pages/MainPage/MainPage";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Role from "../../pages/Role/Role";
 import EditExpertProfile from "../../pages/EditExpertProfile/EditExpertProfile";
 import ExpertProfile from "../../pages/ExpertProfile/ExpertProfile";
@@ -14,9 +14,9 @@ import {
   useSwitchNetwork
 } from "wagmi";
 import {useWaitForTransaction,} from 'wagmi'
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {
-  selectConnectIsShown, selectExperts, selectIsUserRegistered, selectWallet,
+  selectConnectIsShown, selectIsUserRegistered,
   setConnectIsShown,
   setIsUserRegistered,
   setWallet
@@ -34,7 +34,6 @@ const PageWrapper = () => {
   })
 
   const connectModalIsShown = useSelector(selectConnectIsShown)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const {switchNetwork} = useSwitchNetwork()
@@ -90,8 +89,8 @@ const PageWrapper = () => {
         if (switchNetwork) switchNetwork(80001)
         if (isRegistered) isRegistered()  // вызываем функцию (если хук useContractRead успел отработать и функция есть)
 
-        if (nativeBalance && typeof usdtBalance !== "undefined") {  // почему-то ошибка вылетает иногда, что data - undefined.
- 
+        if (typeof nativeBalance !== "undefined" && typeof usdtBalance !== "undefined") {  // почему-то ошибка вылетает иногда, что data - undefined.
+
           dispatch(setWallet({
             number: address,
             balance: ethers.formatUnits(nativeBalance.value, nativeBalance.decimals).slice(0, -15),
