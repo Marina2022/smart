@@ -2,7 +2,7 @@ import axios from 'axios'
 import {StatusCodes} from 'http-status-codes'
 import {toast} from 'react-toastify'
 
-const BASE_URL = 'http://ec2-3-89-222-10.compute-1.amazonaws.com:8082/api/v1/'
+const BASE_URL = 'https://api.cyberbox.art/api/v1/'
 const TIMEOUT = 5000
 
 const ErrorCodeMapping = {
