@@ -32,7 +32,7 @@ const Header = () => {
     <header className={s.mainHeader}>
       <div className="container">
         <div className={s.headerWrapper}>
-          <Link to="/"><img src={logo} alt="logo"/></Link>
+          {showMostOfHeader && <Link to="/"><img src={logo} alt="logo"/></Link>}
           {showMostOfHeader && <div className={s.headerMenu}>
             <Link to="/" className={s.headerLink_active}>Donation</Link>
             <a href="https://docs.cyberbox.art/" className={s.headerLink}>About</a>

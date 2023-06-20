@@ -92,16 +92,16 @@ const dataReducer = createSlice({
       state.connectIsShown = action.payload
 
       if (action.payload === false) {
-      let isExpert = false
-      state.experts.forEach((expert) => {
-        if (state.wallet) {
-          if (expert.address === state.wallet.number.toLowerCase()) {
-            state.currentExpertId = expert.id
-            state.role = 'expert'
-            isExpert = true
+        let isExpert = false
+        state.experts.forEach((expert) => {
+          if (state.wallet) {
+            if (expert.address === state.wallet.number.toLowerCase()) {
+              state.currentExpertId = expert.id
+              state.role = 'expert'
+              isExpert = true
+            }
           }
-        }
-      })
+        })
         if (!isExpert) history.push('/role')
       }
 
@@ -113,6 +113,15 @@ const dataReducer = createSlice({
 
     setWallet: (state, action) => {
       state.wallet = action.payload
+      state.experts.forEach((expert) => {
+        if (expert.address === state.wallet.number.toLowerCase()) {
+          state.currentExpertId = expert.id
+          state.role = 'expert'
+        } else {
+          state.currentExpertId = null
+          state.role = 'student'
+        }
+      })
     },
 
     setUserRole: (state, action) => {
