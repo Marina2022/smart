@@ -64,6 +64,7 @@ const PageWrapper = () => {
     functionName: 'isUserRegistered',
     args: [address],
     onError(error) {
+      console.log('ошибочка вылетает')
       console.log('Ошибка', error)
     },
     onSuccess(data) {
