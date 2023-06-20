@@ -56,7 +56,7 @@ const PageWrapper = () => {
     },
   })
 
-  const isUserRegistered = useSelector(selectIsUserRegistered) // берем из редакса значение - зареган или нет
+  const isUserRegisteredFromRedux = useSelector(selectIsUserRegistered) // берем из редакса значение - зареган или нет
 
   const {isRegistered} = useContractRead({
     address: CONTRACT_ADDRESS,
@@ -107,7 +107,7 @@ const PageWrapper = () => {
 
   return (
     <>
-      {!isUserRegistered && isConnected && <button
+      {!isUserRegisteredFromRedux && isConnected && <button
         onClick={() => register()}
         style={{
           'padding': 20,
