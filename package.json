@@ -27,7 +27,7 @@
     "sass": "^1.62.1",
     "use-clipboard-copy": "^0.2.0",
     "viem": "^0.3.40",
-    "wagmi": "^1.0.9",
+    "wagmi": "1.0.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
