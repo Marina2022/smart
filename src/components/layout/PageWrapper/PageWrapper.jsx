@@ -63,17 +63,14 @@ const PageWrapper = () => {
     abi: MainContract_abi,
     functionName: 'isUserRegistered',
     args: [address],
-    onSettled(data, error) {
-      console.log('Settled', { data, error })
-    }
-    // onError(error) {
-    //   console.log()
-    //   console.log('ошибочка вылетает')
-    //   console.log('Ошибка', error)
-    // },
-    // onSuccess(data) {
-    //   dispatch(setIsUserRegistered(data))
-    // },
+     onError(error) {
+       console.log()
+       console.log('ошибочка вылетает')
+       console.log('Ошибка', error)
+     },
+     onSuccess(data) {
+       dispatch(setIsUserRegistered(data))
+    },
   })
 
   const {data: usdtBalance} = useContractRead({
