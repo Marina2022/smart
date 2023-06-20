@@ -43,8 +43,6 @@ const Header = () => {
             !wallet ? `CONNECT` : `${walletStringValue}`}</button>}
         </div>
         {
-
-          //profileModalIsShown &&
            <TopProfileModal profileModalIsShown={profileModalIsShown} setProfileModalIsShown={setProfileModalIsShown}
                            classname={s.headerProfilePopup} walletNumber={walletStringValue}/>
         }

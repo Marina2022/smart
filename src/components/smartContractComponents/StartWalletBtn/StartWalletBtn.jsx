@@ -6,7 +6,6 @@ import {selectWalletType} from "../../../store/reducers/dataReducer";
 
 const StartWalletBtn = ({setStep}) => {
 
-  // Обработчик нажатия на кнопку Подключись - нужно все данные, которые придут во время подключения, сложить в редакс.. или они после нажатия кнопки Approve придут или  Confirm..
 
   const onStartBtnClick = () => {
     setStep(3);

@@ -85,6 +85,7 @@ const PageWrapper = () => {
   })
 
   useEffect(() => {
+    console.log('isConnected',isConnected)
       if (isConnected) {
         if (switchNetwork) switchNetwork(80001)
         if (isRegistered) isRegistered()  // вызываем функцию (если хук useContractRead успел отработать и функция есть)

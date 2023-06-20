@@ -32,9 +32,6 @@ const ConnectStep2 = ({setStep}) => {
   return (
     <div className={s.step2}>
       <StartWalletBtn setStep={setStep} />
-      {/*<button className={s.backBtn}><img src={backBtn} alt="back button"*/}
-      {/*                                   onClick={() => setStep(1)}*/}
-      {/*/></button>*/}
       <h2 className={s.title}>{walletType}</h2>
       <img className={s.image} src={image} alt="brand picture"/>
 
