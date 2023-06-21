@@ -41,7 +41,7 @@ const Clock = () => {
       showClock = true;
       break
     case 1:
-      message = 'QF ends in'
+      message = 'Ends in'
       showClock = true;
       break
     case 2:

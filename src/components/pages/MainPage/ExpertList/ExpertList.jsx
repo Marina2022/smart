@@ -27,6 +27,7 @@ const ExpertList = () => {
         <div className={s.cellName_header}>Name</div>
         <div className={s.cellContributors_header}>Contributors</div>
         <div className={s.cellDonations_header}>Donations</div>
+        <div className={s.cellBonus_header}>QF Bonus</div>
       </div>
       <ul>
         {

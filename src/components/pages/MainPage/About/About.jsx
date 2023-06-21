@@ -25,13 +25,16 @@ const About = () => {
   return (
     <>
       <h1 className={s.mainTitle}>Quadratic funding #1 for experts</h1>
-      <p className={s.aboutText}>We help authors raise funds to  create a future training course + attract the first learners and users can support the authors they like with donations and get discounts on their finished course!</p>
+      <p className={s.aboutText}>We help experts attract donations and first learners for future training courses!</p>
       <ul className={s.aboutFeatures}>
         <li className={s.aboutFeaturesItem}>
-          <div className={s.featureValue}>${(sumOfDonates).toLocaleString('en')}</div>
+          {/*<div className={s.featureValue}>${(sumOfDonates).toLocaleString('en')}</div>*/}
+          <div className={s.featureValue}>{(experts.length)}</div>
           <div className={s.featureName}>
-            <img className={s.featureImage} src={icon1} alt="feature icon"/>
-            <span>Donations</span>
+            {/*<img className={s.featureImage} src={icon1} alt="feature icon"/>*/}
+            <img className={s.featureImage} src={icon2} alt="feature icon"/>
+            {/*<span>Donations</span>*/}
+            <span>Experts</span>
           </div>
         </li>
         <li className={s.aboutFeaturesItem}>
@@ -42,7 +45,7 @@ const About = () => {
           </div>
         </li>
         <li className={s.aboutFeaturesItem}>
-          <div className={s.featureValue}>${PRIZE_FUND}.000 </div>
+          <div className={s.featureValue}>${PRIZE_FUND}.000 $CBX</div>
           <div className={s.featureName}>
             <img className={s.featureImage} src={icon3} alt="feature icon"/>
             <span>Prizepool</span>
