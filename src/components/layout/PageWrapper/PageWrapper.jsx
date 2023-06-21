@@ -63,11 +63,13 @@ const PageWrapper = () => {
     abi: MainContract_abi,
     functionName: 'isUserRegistered',
     args: [address],
-    onError(error) {
-      console.log('Ошибка', error)
-    },
-    onSuccess(data) {
-      dispatch(setIsUserRegistered(data))
+     onError(error) {
+       console.log()
+       console.log('ошибочка вылетает')
+       console.log('Ошибка', error)
+     },
+     onSuccess(data) {
+       dispatch(setIsUserRegistered(data))
     },
   })
 
