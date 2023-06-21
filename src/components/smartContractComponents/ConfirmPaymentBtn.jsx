@@ -25,7 +25,13 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     onSuccess(data) {
       setStep(3)
       setIsExpertVoted(true)
+
+      // Это надо в useWaitForTransaction положить, когда транзакция пройдет:
+      // отсюда
       setIsSubmitting(false)
+      window.location.reload()
+      // досюда
+
     },
     onError(error) {
       console.log('error=',error)
