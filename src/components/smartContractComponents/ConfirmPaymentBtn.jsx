@@ -1,10 +1,8 @@
 import s from './ConnectBtns.module.scss';
 import {useDispatch, useSelector} from "react-redux";
-import {selectDonateInputValue, setConnectIsShown, setIsVoted, setWallet} from "../../store/reducers/dataReducer";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {selectDonateInputValue} from "../../store/reducers/dataReducer";
 import {useContractWrite} from "wagmi";
 import {CONTRACT_ADDRESS, MainContract_abi} from "../../consts";
-import {toast} from "react-toastify";
 import {useState} from "react";
 
 const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
@@ -28,12 +26,10 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
       setStep(3)
       setIsExpertVoted(true)
       setIsSubmitting(false)
-      window.location.reload()
     },
     onError(error) {
       console.log('error=',error)
       setIsSubmitting(false)
-
     }
   })
 
