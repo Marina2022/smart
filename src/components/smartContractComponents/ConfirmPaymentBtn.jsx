@@ -5,8 +5,11 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import {useContractWrite} from "wagmi";
 import {CONTRACT_ADDRESS, MainContract_abi} from "../../consts";
 import {toast} from "react-toastify";
+import {useState} from "react";
 
 const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const donateInputValue = useSelector(selectDonateInputValue)
   const dispatch = useDispatch()
@@ -24,19 +27,24 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     onSuccess(data) {
       setStep(3)
       setIsExpertVoted(true)
+      setIsSubmitting(false)
+      window.location.reload()
     },
     onError(error) {
-      console.log(error)
+      console.log('error=',error)
+      setIsSubmitting(false)
+
     }
   })
 
   const onConfirmPaymentClick = () => {   // обработчик клика по кнопке Confirm
     donateInUsdt()
+    setIsSubmitting(true)
   }
 
   return (
-    <button className={s.connectBtn} disabled={step === 1} onClick={onConfirmPaymentClick}>
-      Confirm</button>
+    <button className={s.connectBtn} disabled={step === 1 || isSubmitting} onClick={onConfirmPaymentClick}>
+      {isSubmitting ? 'Wait...' : 'Confirm'}</button>
   );
 };
 

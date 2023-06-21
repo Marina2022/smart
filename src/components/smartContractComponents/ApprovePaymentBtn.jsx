@@ -4,8 +4,11 @@ import {selectDonateInputValue} from "../../store/reducers/dataReducer";
 import {useContractWrite} from "wagmi";
 import {CONTRACT_ADDRESS, USDT_abi, USDT_ADDRESS} from "../../consts";
 import {toast} from "react-toastify";
+import {useState} from "react";
 
 const ApprovePaymentBtn = ({step, setStep, expertId}) => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const donateInputValue = useSelector(selectDonateInputValue)
 
@@ -21,22 +24,25 @@ const ApprovePaymentBtn = ({step, setStep, expertId}) => {
     args: [CONTRACT_ADDRESS, donateInputValue * 10 ** 18], // donateInputValue - сумма которую пользователь в инпут ввел
     onSuccess(data) {
       setStep(2)    // т.е. перейдет на след. шаг, если аппрув удался
+      setIsSubmitting(false)
     },
     onError(error) {
       console.log(error)
+      setIsSubmitting(false)
     }
   })
 
   const onApprovePayment = () => {  // обработчик клика на кнопку Approve
     if (donateInputValue === '') return
     approveUsdt()
+    setIsSubmitting(true)
   }
 
   return (
     <button
-      className={s.connectBtn} disabled={step === 2}
+      className={s.connectBtn} disabled={step === 2 || isSubmitting}
       onClick={onApprovePayment}
-    >Approve</button>
+    >{isSubmitting ? 'Wait...' : 'Approve'}</button>
   );
 };
 
