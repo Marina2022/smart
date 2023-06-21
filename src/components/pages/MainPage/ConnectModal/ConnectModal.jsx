@@ -30,7 +30,6 @@ const ConnectModal = () => {
   const [step, setStep] = useState(2);
   const connectIsActive = useSelector(selectConnectIsShown)
 
-
   return (
     connectIsActive && <div>
       <div className="overlay" onClick={onClose}></div>

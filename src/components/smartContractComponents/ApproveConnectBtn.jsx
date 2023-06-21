@@ -1,11 +1,11 @@
 import s from './ConnectBtns.module.scss';
 
-const ApproveConnectBtn = ({step, setStep}) => {
+const ApproveConnectBtn = ({onVerifyClick}) => {
   return (
     <button
-      className={s.connectBtn} disabled={step === 4}
-    onClick={()=>setStep(4)}
-    >Approve</button>
+      className={s.connectBtn}
+      onClick={onVerifyClick}  // тут будет онКлик кнопки Register
+    >Verify</button>
   );
 };
 
