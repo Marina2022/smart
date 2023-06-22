@@ -87,7 +87,7 @@ const ExpertProfile = () => {
         <div>
           {
             expertInfo &&
-            <ExpertDonations donations={donations === 0 ? '0' : donations} bonus={bonus === 0 ? '0' : bonus} classname={s.expertDonations}/>
+            <ExpertDonations donations={donations === 0 ? '0' : donations} bonus={bonus === 0 ? '0' : `${bonus} $CBX`} classname={s.expertDonations}/>
           }
 
           {currentExpertId === +paramsId && < ClaimButton/>}

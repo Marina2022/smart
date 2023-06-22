@@ -33,7 +33,7 @@ const ApprovePaymentBtn = ({step, setStep, expertId}) => {
   })
 
   const onApprovePayment = () => {  // обработчик клика на кнопку Approve
-    if (donateInputValue === '') return
+    if (donateInputValue === '' || Number(donateInputValue) < 1 ) return
     approveUsdt()
     setIsSubmitting(true)
   }
