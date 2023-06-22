@@ -18,7 +18,6 @@ const UserProfile = () => {
 
   const switchToExpert = () => {
     setIsModalActive(true);
-    dispatch(setUserRole('expert'))
   }
 
   return (

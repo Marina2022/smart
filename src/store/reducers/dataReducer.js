@@ -102,7 +102,7 @@ const dataReducer = createSlice({
             }
           }
         })
-        if (!isExpert) history.push('/role')
+        // if (!isExpert) history.push('/role')
       }
 
     },
@@ -208,8 +208,8 @@ export const {
   setWallet,
   setUserRole,
   setDonateInputValue,
-  setSuccessfullyDonated,
   setIsUserRegistered,
+  setFormIsSubmitting
 } = dataReducer.actions
 
 export default dataReducer.reducer

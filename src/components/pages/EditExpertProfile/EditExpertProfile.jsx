@@ -7,7 +7,7 @@ import {
   fetchExperts,
   selectCurrentExpert,
   selectCurrentExpertId, selectFormIsSubmitting, selectWallet,
-  sendExpert
+  sendExpert, setFormIsSubmitting, setUserRole
 } from "../../../store/reducers/dataReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {useContractWrite, useWaitForTransaction} from "wagmi";
@@ -19,7 +19,7 @@ const EditExpertProfile = () => {
   const formIsSubmitting = useSelector(selectFormIsSubmitting)
 
   const onBackClick = () => {
-    navigate('/role')
+    navigate('/')
   }
 
   useEffect(() => {
@@ -29,6 +29,8 @@ const EditExpertProfile = () => {
         refUser.current.style.borderRadius = '50%';
       }
     }
+
+    dispatch(setFormIsSubmitting(false))
   }, [])
 
   let walletaddress
@@ -112,6 +114,7 @@ const EditExpertProfile = () => {
 
     onSuccess(data) {
       console.log('Запрос на регистрацию отправлен', data)
+      dispatch(setUserRole('expert'))
 
       const newExpertId = expertId ? expertId : Math.trunc(new Date().valueOf() / 1000)
       const sendData = {
@@ -119,7 +122,6 @@ const EditExpertProfile = () => {
         info: info
       }
       dispatch(sendExpert({sendData, file}))
-
     },
   })
 
@@ -154,6 +156,7 @@ const EditExpertProfile = () => {
               }}
 
               onSubmit={(values) => {
+                dispatch(setFormIsSubmitting(true))
 
                 if (!expertId) {  // эксперт создает профиль и регистрируется на блокчейне
                   registerAsExp()

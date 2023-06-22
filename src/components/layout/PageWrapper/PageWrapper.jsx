@@ -24,14 +24,13 @@ import {
 import {ethers} from "ethers";
 import {useDispatch, useSelector} from "react-redux";
 import {CONTRACT_ADDRESS, MainContract_abi, USDT_ADDRESS, USDT_abi} from "../../../consts";
-import ConnectSteps3_4 from "../../pages/MainPage/ConnectModal/ConnectSteps3-4/ConnectSteps3_4";
 import VerifyWallet from "./VerifyWallet/VerifyWallet";
 import Congratulations from "./Congratulations/Congratulations";
+// import {useDisconnect} from "wagmi";
 
 const PageWrapper = () => {
 
   const [congratModalIsShown, showCongratsModal] = useState(false)
-
   const {address, isConnected} = useAccount()
 
   const {data: nativeBalance, isError, isLoading} = useBalance({
@@ -42,7 +41,6 @@ const PageWrapper = () => {
   const dispatch = useDispatch()
 
   const {switchNetwork} = useSwitchNetwork()
-
 
   const {config: registerConfig, error: errRegister} = usePrepareContractWrite({
     address: CONTRACT_ADDRESS,
@@ -70,14 +68,13 @@ const PageWrapper = () => {
     functionName: 'isUserRegistered',
     args: [address],
     onError(error) {
-      console.log()
-      console.log('ошибочка вылетает')
       console.log('Ошибка', error)
     },
     onSuccess(data) {
       dispatch(setIsUserRegistered(data))
     },
   })
+
 
   const {data: usdtBalance} = useContractRead({
     address: USDT_ADDRESS,
@@ -91,6 +88,7 @@ const PageWrapper = () => {
       console.log('Usdt balance:', data)
     },
   })
+
 
   useEffect(() => {
       console.log('isConnected', isConnected)
@@ -113,20 +111,20 @@ const PageWrapper = () => {
     }, [isConnected, nativeBalance]
   )
 
+
+  // const {disconnect} = useDisconnect()
+
+  // // При заходе на сайт проверяем есть ли верификация у юзера при условии, что кошелек уже подключен (и отключаем кошелек, если ее нет)
+  // useEffect(()=>{
+  //   if (isConnected) {
+  //     if (isUserRegisteredFromRedux) disconnect()  // Отключить кошель, если нет регистрации
+  //   }
+  // },[])
+
+
   return (
     <>
-      {/*{!isUserRegisteredFromRedux && isConnected && <button*/}
-      {/*  onClick={() => register()}*/}
-      {/*  style={{*/}
-      {/*    'padding': 20,*/}
-      {/*    'border': '2px red solid',*/}
-      {/*    'position': 'absolute',*/}
-      {/*    'right': 180,*/}
-      {/*    'top': 10,*/}
-      {/*    'borderRadius': 15,*/}
-      {/*    'backgroundColor': '#fff'*/}
-      {/*  }}*/}
-      {/*>Register</button>}*/}
+
 
       {/*Вместо кнопки показываем модалку:*/}
 
