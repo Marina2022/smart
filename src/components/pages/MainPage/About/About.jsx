@@ -45,7 +45,7 @@ const About = () => {
           </div>
         </li>
         <li className={s.aboutFeaturesItem}>
-          <div className={s.featureValue}>{PRIZE_FUND}.000 $CBX</div>
+          <div className={s.featureValue}>{PRIZE_FUND}.000 $EDU3</div>
           <div className={s.featureName}>
             <img className={s.featureImage} src={icon3} alt="feature icon"/>
             <span>Prizepool</span>
