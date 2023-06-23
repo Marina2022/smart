@@ -16,7 +16,6 @@ import twoActive from "../../../../assets/progress/two-active.svg";
 const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, setIsExpertVoted}) => {
 
   const dispatch = useDispatch()
-
   const donateInputValue = useSelector(selectDonateInputValue)
 
   const onPayInputChange = (e) => {
@@ -43,6 +42,12 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
     setStep(1);
     dispatch(setDonateInputValue(''))
   }
+
+  const onOK = () => {
+    onClose()
+    window.location.reload()
+  }
+
   return (
     isDonateModalShown && <div>
       <div className={s.donateModal}>
@@ -88,7 +93,7 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
           step === 3 && <div className={s.step_3}>
             <h3 className={s.thanks}>Thank you!</h3>
             <p className={s.successText}>You have successfully voted for the author</p>
-            <button onClick={onClose} className={s.successBtn}>Ok</button>
+            <button onClick={onOK} className={s.successBtn}>Ok</button>
           </div>
         }
 

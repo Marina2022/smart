@@ -23,12 +23,12 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     functionName: 'donateInUSDT',
     args: [expertId, donateInputValue * 10 ** 18],
     onSuccess(data) {
-      // Это надо в useWaitForTransaction положить, когда транзакция пройдет:
+
+      // Это надо в useWaitForTransaction перенести, чтобы происходило это все, когда транзакция уже пройдет
       // отсюда
       setStep(3)
       setIsExpertVoted(true)
       setIsSubmitting(false)
-      window.location.reload()
       // досюда
 
     },
