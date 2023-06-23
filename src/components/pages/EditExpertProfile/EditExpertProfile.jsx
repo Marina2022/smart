@@ -4,7 +4,6 @@ import {useEffect, useRef, useState} from "react";
 import cn from "classnames";
 import {useNavigate} from "react-router-dom";
 import {
-  fetchExperts,
   selectCurrentExpert,
   selectCurrentExpertId, selectFormIsSubmitting, selectWallet,
   sendExpert, setFormIsSubmitting, setUserRole
@@ -127,7 +126,6 @@ const EditExpertProfile = () => {
 
   return (
     <div className={s.container}>
-
       <Formik initialValues={initialValues}
               validate={values => {
                 const errors = {};

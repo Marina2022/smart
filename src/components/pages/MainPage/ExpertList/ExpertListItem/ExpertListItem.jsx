@@ -12,7 +12,7 @@ const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
   }, 0)
 
   const avatar = expert.image ? expert.image : defaultAva;
-  const bonus = (PRIZE_FUND * expert.events.donates.length /  globalDonatesNumber).toFixed(1) + 'k $CBX'
+  const bonus = (PRIZE_FUND * expert.events.donates.length /  globalDonatesNumber).toFixed(1) + 'k $EDU3'
   const [isExpertModalActive, setExpertModalActive] = useState(false);
 
   return (

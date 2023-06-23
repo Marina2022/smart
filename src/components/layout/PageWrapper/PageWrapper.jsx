@@ -26,7 +26,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {CONTRACT_ADDRESS, MainContract_abi, USDT_ADDRESS, USDT_abi} from "../../../consts";
 import VerifyWallet from "./VerifyWallet/VerifyWallet";
 import Congratulations from "./Congratulations/Congratulations";
-// import {useDisconnect} from "wagmi";
 
 const PageWrapper = () => {
 
@@ -75,7 +74,6 @@ const PageWrapper = () => {
     },
   })
 
-
   const {data: usdtBalance} = useContractRead({
     address: USDT_ADDRESS,
     abi: USDT_abi,
@@ -88,7 +86,6 @@ const PageWrapper = () => {
       console.log('Usdt balance:', data)
     },
   })
-
 
   useEffect(() => {
       console.log('isConnected', isConnected)
@@ -111,23 +108,9 @@ const PageWrapper = () => {
     }, [isConnected, nativeBalance]
   )
 
-
-  // const {disconnect} = useDisconnect()
-
-  // // При заходе на сайт проверяем есть ли верификация у юзера при условии, что кошелек уже подключен (и отключаем кошелек, если ее нет)
-  // useEffect(()=>{
-  //   if (isConnected) {
-  //     if (isUserRegisteredFromRedux) disconnect()  // Отключить кошель, если нет регистрации
-  //   }
-  // },[])
-
-
   return (
     <>
-
-
       {/*Вместо кнопки показываем модалку:*/}
-
       {!isUserRegisteredFromRedux && isConnected &&
         <VerifyWallet onVerifyClick={() => register()}/>
       }
@@ -139,7 +122,7 @@ const PageWrapper = () => {
       <Header/>
       <Routes>
         <Route path={'/'} element={<MainPage/>}/>
-        <Route path={'/role'} element={<Role/>}/>
+        {/*<Route path={'/role'} element={<Role/>}/>*/}
         <Route path={'/edit'} element={<EditExpertProfile/>}/>
         <Route path={'/expertProfile/:id'} element={<ExpertProfile/>}/>
         <Route path={'/profile'} element={<UserProfile/>}/>
