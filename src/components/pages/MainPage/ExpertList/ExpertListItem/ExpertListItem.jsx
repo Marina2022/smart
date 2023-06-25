@@ -8,8 +8,9 @@ import {PRIZE_FUND} from "../../../../../consts";
 const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
   const contributors = expert.events.donates.length
   const donations = expert.events.donates.reduce((sum, elem) => {
-    return +sum + +(elem._revardsAmount/10**18).toFixed(2)
-  }, 0)
+    return +sum + +(elem._revardsAmount/10**18)
+
+  }, 0).toFixed(2)
 
   const avatar = expert.image ? expert.image : defaultAva;
   const bonus = (PRIZE_FUND * expert.events.donates.length /  globalDonatesNumber).toFixed(1) + 'k $EDU3'

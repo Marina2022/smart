@@ -9,7 +9,6 @@ import {fetchExperts, fetchOtherData, setRoundData, setWallet} from './store/red
 import {createAPI} from "./services/api";
 import BrowserHistoryRouter from "./components/browserHistoryRouter/browserHistoryRouter";
 import history from "./browserHistory";
-import {useAccount, useBalance} from "wagmi";
 
 export const api = createAPI();
 
