@@ -50,9 +50,6 @@ const ExpertProfile = () => {
       return expert.id === +paramsId
     })
 
-    console.log(expertInfo)
-
-
     if (expertInfo) {  // если эксперт в списке экспертов уже есть, то можно посчитать его donations и QF bonus
       donations = expertInfo.events.donates.reduce((sum, elem) => {
         return sum + +(elem._revardsAmount/10**18).toFixed(2)
@@ -62,7 +59,14 @@ const ExpertProfile = () => {
         return sum + elem.events.donates.length
       }, 0)
 
-      bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k'
+      let bonus
+      if (globalDonatesNumber.length === 0) {
+        bonus = '0'
+      } else {
+        bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k $EDU3'
+      }
+
+      // bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k'
     }
   }
 

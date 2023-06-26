@@ -8,12 +8,18 @@ import {PRIZE_FUND} from "../../../../../consts";
 const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
   const contributors = expert.events.donates.length
   const donations = expert.events.donates.reduce((sum, elem) => {
-    return +sum + +(elem._revardsAmount/10**18)
+    return +sum + +(elem._revardsAmount / 10 ** 18)
 
   }, 0).toFixed(2)
 
   const avatar = expert.image ? expert.image : defaultAva;
-  const bonus = (PRIZE_FUND * expert.events.donates.length /  globalDonatesNumber).toFixed(1) + 'k $EDU3'
+
+  let bonus
+  if (globalDonatesNumber === 0) {
+    bonus = '0 $EDU3'
+  } else {
+    bonus = (PRIZE_FUND * expert.events.donates.length / globalDonatesNumber).toFixed(1) + 'k $EDU3'
+  }
   const [isExpertModalActive, setExpertModalActive] = useState(false);
 
   return (
@@ -26,7 +32,7 @@ const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
         </a>
       </div>
       <div className={s.cellContributors}>{contributors}</div>
-      <div className={s.cellDonations}><span className={s.cellDonationsSum}>${donations}</span> </div>
+      <div className={s.cellDonations}><span className={s.cellDonationsSum}>${donations}</span></div>
       <div className={s.cellBonus}><span className={s.cellDonationsPlus}>+{bonus}</span></div>
 
       <DonateButton expert={expert} bonus={bonus}/>
