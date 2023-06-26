@@ -34,7 +34,7 @@ const EditExpertProfile = () => {
 
   let walletaddress
   const wallet = useSelector(selectWallet)
-  if (wallet) walletaddress = wallet.number
+  if (wallet) walletaddress = wallet.number.toLowerCase()
 
   const refUser = useRef(null);
   const [file, setFile] = useState(null)
@@ -182,7 +182,7 @@ const EditExpertProfile = () => {
                      onBlur={(e) => {
                        setFirstName(e.target.value)
                        setInfo(prevState => ({
-                         ...prevState, name: e.target.value, address: walletaddress
+                         ...prevState, name: e.target.value, address: walletaddress.toLowerCase()
                        }))
                        handleBlur(e)
                      }}

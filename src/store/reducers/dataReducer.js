@@ -108,7 +108,7 @@ const dataReducer = createSlice({
     },
 
     setWalletType: (state, action) => {
-      state.walletType = action.payload
+      state.walletType = action.payload.toLowerCase()
     },
 
     setWallet: (state, action) => {
