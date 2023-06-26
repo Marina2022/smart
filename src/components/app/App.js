@@ -2,6 +2,7 @@ import PageWrapper from "../layout/PageWrapper/PageWrapper";
 
 import './normalize.scss';
 import './App.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {EthereumClient, w3mConnectors, w3mProvider} from '@web3modal/ethereum'
 import {Web3Modal} from '@web3modal/react'
@@ -9,11 +10,8 @@ import {configureChains, createConfig, useAccount, useBalance, WagmiConfig} from
 import {polygonMumbai} from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 
-import {useDispatch, useSelector} from "react-redux";
-import {selectWallet, setWallet} from "../../store/reducers/dataReducer";
-import {useEffect} from "react";
-import {ethers} from "ethers";
 import {PROJECT_ID} from "../../consts";
+import {ToastContainer} from "react-toastify";
 
 const chains = [polygonMumbai]
 const projectId = PROJECT_ID; //вот это надо будет засунуть в .env файл
@@ -38,6 +36,7 @@ function App() {
     <>
       <WagmiConfig config={wagmiConfig}>
         <div className="App">
+          <ToastContainer/>
           <PageWrapper/>
         </div>
       </WagmiConfig>

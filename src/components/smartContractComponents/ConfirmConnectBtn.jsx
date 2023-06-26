@@ -1,7 +1,7 @@
 import s from './ConnectBtns.module.scss';
 import {useDispatch} from "react-redux";
 import {setConnectIsShown, setWallet} from "../../store/reducers/dataReducer";
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const ConfirmConnectBtn = ({step, setStep}) => {
   const dispatch = useDispatch();

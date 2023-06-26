@@ -11,6 +11,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {useContractWrite, useWaitForTransaction} from "wagmi";
 import {CONTRACT_ADDRESS, MainContract_abi} from "../../../consts";
+import {toast} from "react-toastify";
 
 const EditExpertProfile = () => {
   const expertId = useSelector(selectCurrentExpertId)
@@ -106,21 +107,25 @@ const EditExpertProfile = () => {
     address: CONTRACT_ADDRESS,
     abi: MainContract_abi,
     functionName: 'registerAsExpert',
-    args: [firstName + ' ' + secondName]
+    args: [firstName + ' ' + secondName],
+    onError(error) {
+      alert(error)
+    },
   })
   const {isLoading: isLoad, isSuccess} = useWaitForTransaction({
     hash: registerExpData?.hash,
-
     onSuccess(data) {
       console.log('Запрос на регистрацию отправлен', data)
       dispatch(setUserRole('expert'))
-
       const newExpertId = expertId ? expertId : Math.trunc(new Date().valueOf() / 1000)
       const sendData = {
         expertId: newExpertId,
         info: info
       }
       dispatch(sendExpert({sendData, file}))
+    },
+    onError(error) {
+      alert(error)
     },
   })
 

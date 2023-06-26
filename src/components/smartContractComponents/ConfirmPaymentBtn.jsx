@@ -1,5 +1,5 @@
 import s from './ConnectBtns.module.scss';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {selectDonateInputValue} from "../../store/reducers/dataReducer";
 import {useContractWrite} from "wagmi";
 import {CONTRACT_ADDRESS, MainContract_abi} from "../../consts";
@@ -10,7 +10,6 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const donateInputValue = useSelector(selectDonateInputValue)
-  const dispatch = useDispatch()
 
   const {
     data: DonateData,
@@ -35,6 +34,7 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     onError(error) {
       console.log('error=',error)
       setIsSubmitting(false)
+      alert(error)
     }
   })
 
