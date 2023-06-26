@@ -6,7 +6,7 @@ const ExpertDonations = ({classname, donations, bonus}) => {
   return (
     <div className={cn(s.expertDonations, classname)}>
       <div className={s.expertDonationsDonates}>
-        <div className={s.expertDonationsValue}>${donations}</div>
+        <div className={s.expertDonationsValue}>${Math.trunc(donations)}</div>
         <div>Donations</div>
       </div>
       <div>

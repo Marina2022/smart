@@ -39,34 +39,31 @@ const ExpertProfile = () => {
 
   const wallet = useSelector(selectWallet)
   const experts = useSelector(selectExperts)
-  console.log(experts)
 
   let donations = 0
-  let bonus = 0
+  let bonus
 
   let expertInfo = null
   if (wallet) {
-     expertInfo = experts.find((expert) => {
+    expertInfo = experts.find((expert) => {
       return expert.id === +paramsId
     })
 
     if (expertInfo) {  // если эксперт в списке экспертов уже есть, то можно посчитать его donations и QF bonus
       donations = expertInfo.events.donates.reduce((sum, elem) => {
-        return sum + +(elem._revardsAmount/10**18).toFixed(2)
+        return sum + +(elem._revardsAmount / 10 ** 18).toFixed(2)
       }, 0)
 
       const globalDonatesNumber = experts.reduce((sum, elem) => {
         return sum + elem.events.donates.length
       }, 0)
+      bonus = 0
 
-      let bonus
       if (globalDonatesNumber.length === 0) {
         bonus = '0'
       } else {
-        bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k $EDU3'
+        bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k EDU3'
       }
-
-      // bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k'
     }
   }
 
@@ -91,7 +88,8 @@ const ExpertProfile = () => {
         <div>
           {
             expertInfo &&
-            <ExpertDonations donations={donations === 0 ? '0' : donations} bonus={bonus === 0 ? '0' : `${bonus} $EDU3`} classname={s.expertDonations}/>
+            <ExpertDonations donations={donations === 0 ? '0' : donations} bonus={bonus === 0 ? '0' : `$${bonus}`}
+                             classname={s.expertDonations}/>
           }
 
           {currentExpertId === +paramsId && < ClaimButton/>}

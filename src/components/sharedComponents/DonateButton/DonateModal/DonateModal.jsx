@@ -25,7 +25,6 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
   const onPayInputChange = (e) => {
     dispatch(setDonateInputValue(e.target.value))
 
-    console.log('donateInputValue', e.target.value)
     if (Number(e.target.value) < 1) {
       setShowMinimum(true)
     } else {
@@ -44,8 +43,6 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
     document.addEventListener('keydown', onKeydown)
     return () => document.removeEventListener('keydown', onKeydown)
   }, [])
-
-
 
   const onClose = () => {
     setIsDonateModalShown(false);
