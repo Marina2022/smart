@@ -243,3 +243,4 @@ export const selectSuccessfullyDonated = (state) => state.DATA.successfullyDonat
 export const selectIsUserRegistered = (state) => state.DATA.isUserRegistered
 
 export const selectRegisteredUsers = (state) => state.DATA.otherData.userRegistrations
+export const selectIsOtherDataLoading = (state) => state.DATA.isOtherDataLoading

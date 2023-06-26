@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
   fetchExperts,
   fetchOtherData, selectCurrentExpertId,
-  selectIsLoading, selectWallet,
+  selectIsLoading, selectIsOtherDataLoading, selectWallet,
   setRoundData,
 } from "../../../store/reducers/dataReducer";
 import {RotatingLines} from 'react-loader-spinner';
@@ -26,7 +26,8 @@ const MainPage = () => {
 
 
   const isMainPageLoading = useSelector(selectIsLoading);
-  if (isMainPageLoading) return <div style={{'textAlign': 'center', 'padding': 50}}><RotatingLines
+  const isOtherDataLoading = useSelector(selectIsOtherDataLoading);
+  if (isMainPageLoading || isOtherDataLoading) return <div style={{'textAlign': 'center', 'padding': 50}}><RotatingLines
     strokeColor="#4481c3"/></div>
 
   return (
