@@ -30,12 +30,12 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     //   setIsSubmitting(false)
     //   // досюда
 
-    // },
-    // onError(error) {
-    //   console.log('error=',error)
-    //   setIsSubmitting(false)
-    //   alert(error)
-    // }
+    //},
+    onError(error) {
+      console.log('error=',error)
+      setIsSubmitting(false)
+      alert(error)
+    }
   })
   const waitForDonate = useWaitForTransaction({
     hash: DonateData?.hash,
