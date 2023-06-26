@@ -79,8 +79,10 @@ const initialState = {
   donateInputValue: '',
   successfullyDonated: null,
   isUserRegistered: true,
-  isOtherDataLoading: false,
+  isOtherDataLoading: true,
   otherData: null,
+  expertRequesteds: null,
+  usersVerified: null
 }
 
 const dataReducer = createSlice({
@@ -147,7 +149,6 @@ const dataReducer = createSlice({
     setIsUserRegistered: (state, action) => {
       state.isUserRegistered = action.payload
     },
-
   },
 
   extraReducers: (builder) => builder
@@ -205,8 +206,20 @@ const dataReducer = createSlice({
       state.isOtherDataLoading = true;
     })
     .addCase(fetchOtherData.fulfilled, (state, action) => {
+      console.log('action.payload', action.payload)
       state.otherData = action.payload
+      state.usersVerified = action.payload.userRegistrations
       state.isOtherDataLoading = false
+
+      //state.expertRequesteds = action.payload.registrationRequesteds
+      const allExperts = action.payload.registrationRequesteds
+      const approvedExperts = action.payload.registrationApproveds
+      const notApprovedExperts =  allExperts.filter((expert)=> {
+        return !approvedExperts.find(approvedExpert => approvedExpert._expertAddress === expert._expertAddress)
+      })
+
+      state.expertRequesteds =  notApprovedExperts
+
     })
     .addCase(fetchOtherData.rejected, (state, action) => {
       console.log('other data downloading error ')
@@ -242,5 +255,7 @@ export const selectDonateInputValue = (state) => state.DATA.donateInputValue
 export const selectSuccessfullyDonated = (state) => state.DATA.successfullyDonated
 export const selectIsUserRegistered = (state) => state.DATA.isUserRegistered
 
-export const selectRegisteredUsers = (state) => state.DATA.otherData.userRegistrations
+
+export const selectRegistrationRequested = (state) => state.DATA.expertRequesteds
+export const selectRegisteredUsers = (state) => state.DATA.usersVerified
 export const selectIsOtherDataLoading = (state) => state.DATA.isOtherDataLoading

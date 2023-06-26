@@ -26,6 +26,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {CONTRACT_ADDRESS, MainContract_abi, USDT_ADDRESS, USDT_abi} from "../../../consts";
 import VerifyWallet from "./VerifyWallet/VerifyWallet";
 import Congratulations from "./Congratulations/Congratulations";
+import Admin from "../../pages/Admin/Admin";
+
 
 const PageWrapper = () => {
 
@@ -123,6 +125,7 @@ const PageWrapper = () => {
       <Routes>
         <Route path={'/'} element={<MainPage/>}/>
         {/*<Route path={'/role'} element={<Role/>}/>*/}
+        <Route path={'/admin'} element={<Admin/>}/>
         <Route path={'/edit'} element={<EditExpertProfile/>}/>
         <Route path={'/expertProfile/:id'} element={<ExpertProfile/>}/>
         <Route path={'/profile'} element={<UserProfile/>}/>
