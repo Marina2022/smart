@@ -12,9 +12,9 @@ const Header = () => {
   const [profileModalIsShown, setProfileModalIsShown] = useState(false);
   const dispatch = useDispatch();
 
-  const role = useSelector(selectRole);
-  const isRegistered = useSelector(selectIsUserRegistered)
-  const isConnected = useSelector(selectWallet)
+  // const role = useSelector(selectRole);
+  // const isRegistered = useSelector(selectIsUserRegistered)
+  // const isConnected = useSelector(selectWallet)
 
   const onHeaderBtnClick = () => {
     if (wallet) {
@@ -42,9 +42,9 @@ const Header = () => {
             <a href="https://docs.cyberbox.art/" className={s.headerLink}>About</a>
           </div>}
 
-          {
-            role !== 'expert' && isRegistered && showMostOfHeader && isConnected && <Link className={s.createExpertLink} to="/edit">Create an Expert</Link>
-          }
+          {/*{*/}
+          {/*  role !== 'expert' && isRegistered && showMostOfHeader && isConnected && <Link className={s.createExpertLink} to="/edit">Create an Expert</Link>*/}
+          {/*}*/}
 
           {showMostOfHeader && <button className={s.headerConnectBtn}
                                        onClick={onHeaderBtnClick}

@@ -1,0 +1,25 @@
+.createExpertBlock {
+  width: 250px;
+  margin: 0 auto 78px;
+  color: #212529;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.48px;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(54, 179, 181, 0.40);
+}
+
+.joinBtn {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--brand-colors-primary, #CB00DD);
+  background: var(--gray-colors-white, #FFF);
+  width: 107px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px auto 0;
+}

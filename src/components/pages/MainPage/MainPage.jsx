@@ -3,12 +3,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {
   fetchExperts,
   fetchOtherData, selectCurrentExpertId,
-  selectIsLoading, selectIsOtherDataLoading, selectWallet,
+  selectIsLoading, selectIsOtherDataLoading, selectIsUserRegistered, selectRole, selectWallet,
   setRoundData,
 } from "../../../store/reducers/dataReducer";
 import {RotatingLines} from 'react-loader-spinner';
 import ExpertList from "./ExpertList/ExpertList";
 import {useEffect} from "react";
+import CreateExpertBlock from "./CreateExpertBlock/CreateExpertBlock";
+import {Link} from "react-router-dom";
+import s from "../../layout/Header/header.module.scss";
 
 
 const MainPage = () => {
@@ -27,12 +30,23 @@ const MainPage = () => {
 
   const isMainPageLoading = useSelector(selectIsLoading);
   const isOtherDataLoading = useSelector(selectIsOtherDataLoading);
+
+  const role = useSelector(selectRole);
+  const isRegistered = useSelector(selectIsUserRegistered)
+  const isConnected = useSelector(selectWallet)
+
   if (isMainPageLoading || isOtherDataLoading) return <div style={{'textAlign': 'center', 'padding': 50}}><RotatingLines
     strokeColor="#4481c3"/></div>
+
 
   return (
     <>
       <About/>
+
+      {
+        role !== 'expert' && isRegistered &&  isConnected && <CreateExpertBlock />
+      }
+
       <ExpertList/>
     </>
   )
