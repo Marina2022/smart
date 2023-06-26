@@ -18,8 +18,19 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
   const dispatch = useDispatch()
   const donateInputValue = useSelector(selectDonateInputValue)
 
+  const wallet = useSelector(selectWallet)
+  const [step, setStep] = useState(1)
+  const [showMinimum, setShowMinimum] = useState(false)
+
   const onPayInputChange = (e) => {
     dispatch(setDonateInputValue(e.target.value))
+
+    console.log('donateInputValue', e.target.value)
+    if (Number(e.target.value) < 1) {
+      setShowMinimum(true)
+    } else {
+      setShowMinimum(false)
+    }
   }
 
   const onKeydown = (e) => {
@@ -34,8 +45,7 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
     return () => document.removeEventListener('keydown', onKeydown)
   }, [])
 
-  const wallet = useSelector(selectWallet)
-  const [step, setStep] = useState(1)
+
 
   const onClose = () => {
     setIsDonateModalShown(false);
@@ -63,12 +73,16 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
             <h1 className={s.title}>Payment Confirmation</h1>
             <p className={s.youVote}>You vote for {expert.name + ' ' + expert.position}</p>
             <div className={s.youPay}>
-              <span>You pay</span>
+              <span>You pay, USDT</span>
               <input onChange={onPayInputChange} type="text" placeholder="$" className={s.payInput}
                      value={donateInputValue}/>
+
             </div>
+            {
+              showMinimum && <div className={s.minimum}>Minimum amount 1 USDT</div>
+            }
             <div className={s.textQuadr}>
-              <span>Quadratic</span>
+              <span>QF Bonus</span>
               <div className={s.bonusWrapper}><span className={s.bonus}>+{bonus}</span> <img src={greyRound} alt="icon"/>
               </div>
             </div>

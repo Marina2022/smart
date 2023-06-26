@@ -236,10 +236,10 @@ const dataReducer = createSlice({
       state.round = roundData
 
 
-      console.log('_startTime', action.payload.roundStarteds[0]._startTime)
-      console.log('start time из API = ', startTime.toISOString())
-      console.log('endTime time из API = ', endTime.toISOString())
-      console.log('текущий таймстэмп = ', new Date(Date.now()).toISOString())
+      // console.log('_startTime', action.payload.roundStarteds[0]._startTime)
+      // console.log('start time из API = ', startTime.toISOString())
+      // console.log('endTime time из API = ', endTime.toISOString())
+      // console.log('текущий таймстэмп = ', new Date(Date.now()).toISOString())
 
       if (action.payload.roundStarteds[0]) state.roundData = roundData
 
