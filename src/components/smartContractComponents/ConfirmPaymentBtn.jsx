@@ -1,7 +1,7 @@
 import s from './ConnectBtns.module.scss';
 import {useSelector} from "react-redux";
 import {selectDonateInputValue} from "../../store/reducers/dataReducer";
-import {useContractWrite} from "wagmi";
+import {useContractWrite, useWaitForTransaction} from "wagmi";
 import {CONTRACT_ADDRESS, MainContract_abi} from "../../consts";
 import {useState} from "react";
 
@@ -21,6 +21,24 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     abi: MainContract_abi,
     functionName: 'donateInUSDT',
     args: [expertId, donateInputValue * 10 ** 18],
+    // onSuccess(data) {
+
+    //   // Это надо в useWaitForTransaction перенести, чтобы происходило это все, когда транзакция уже пройдет
+    //   // отсюда
+    //   setStep(3)
+    //   setIsExpertVoted(true)
+    //   setIsSubmitting(false)
+    //   // досюда
+
+    // },
+    // onError(error) {
+    //   console.log('error=',error)
+    //   setIsSubmitting(false)
+    //   alert(error)
+    // }
+  })
+  const waitForDonate = useWaitForTransaction({
+    hash: DonateData?.hash,
     onSuccess(data) {
 
       // Это надо в useWaitForTransaction перенести, чтобы происходило это все, когда транзакция уже пройдет
