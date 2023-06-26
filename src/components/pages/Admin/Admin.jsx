@@ -14,12 +14,10 @@ const Admin = () => {
   return (
     <div className="container">
       <h2 className={s.title}>Experts not approved yet</h2>
-
       <div className={s.wrapper}>
         <span className={s.name}><strong>Name</strong></span>
         <span className={s.address}><strong>Address</strong></span>
       </div>
-
       <ul>
         {
           requestedExperts.map((expert) =>
@@ -29,7 +27,6 @@ const Admin = () => {
             </li>)
         }
       </ul>
-
     </div>
   );
 };

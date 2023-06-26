@@ -136,7 +136,6 @@ const dataReducer = createSlice({
       state.donateInputValue = action.payload
     },
 
-
     setSuccessfullyDonated: (state, action) => {
       state.successfullyDonated = action.payload
       if (state.successfullyDonated) {
@@ -206,12 +205,40 @@ const dataReducer = createSlice({
       state.isOtherDataLoading = true;
     })
     .addCase(fetchOtherData.fulfilled, (state, action) => {
-      console.log('action.payload', action.payload)
+      // console.log('action.payload', action.payload)
       state.otherData = action.payload
       state.usersVerified = action.payload.userRegistrations
+
+      // if (action.payload.roundStarteds[0]) state.round = action.payload.roundStarteds[0]
+      // console.log('round', action.payload.roundStarteds[0] )
+
+      const startTime = new Date(+action.payload.roundStarteds[0]._startTime)
+      const endTime = new Date(+action.payload.roundStarteds[0]._endTime)
+      console.log('start time из API = ', startTime.toISOString())
+      console.log('end time из API = ', endTime.toISOString())
+      console.log('текущий таймстэмп = ', Date.now() )
+// if (action.payload.roundStarteds[0]) state.round = action.payload.roundStarteds[0]
+//       {
+//         status: 1,
+//           timeLeft: 202530,
+//       }
+
+      // Вот такой приходит раунд в АПИ
+      // blockNumber: "37268913"
+      // blockTimestamp:"1687719722"
+      // id:"0xb68050713f977e5cf2d37f96bc1e8c1242ca0b767d525b59a3e463dad7bc578514000000"
+      // _revardsAmount:"250000"
+
+      // текущий таймстэмп =   1687779298401
+      // _startTime:          "1687719920"
+      // _endTime:            "1687723520"
+
+      let status
+      if (!action.payload.roundStarteds[0]) status = 0 // раунд не начался
+
+
       state.isOtherDataLoading = false
 
-      //state.expertRequesteds = action.payload.registrationRequesteds
       const allExperts = action.payload.registrationRequesteds
       const approvedExperts = action.payload.registrationApproveds
       const notApprovedExperts =  allExperts.filter((expert)=> {
