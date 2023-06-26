@@ -4,11 +4,12 @@ import icon2 from '../../../../assets/about-icon2.svg';
 import icon3 from '../../../../assets/about-icon3.svg';
 import {PRIZE_FUND} from "../../../../consts";
 import {useSelector} from "react-redux";
-import {selectExperts} from "../../../../store/reducers/dataReducer";
+import {selectExperts, selectRegisteredUsers} from "../../../../store/reducers/dataReducer";
 
 const About = () => {
 
   const experts = useSelector(selectExperts);
+  const verifiedUsers = useSelector(selectRegisteredUsers)
 
   let contributors = 0  // сумма контрибуторов
   let sumOfDonates = 0
@@ -38,10 +39,12 @@ const About = () => {
           </div>
         </li>
         <li className={s.aboutFeaturesItem}>
-          <div className={s.featureValue}>{contributors}</div>
+          {/*<div className={s.featureValue}>{contributors}</div>*/}
+          <div className={s.featureValue}>{verifiedUsers.length}</div>
           <div className={s.featureName}>
             <img className={s.featureImage} src={icon2} alt="feature icon"/>
-            <span>Contributors</span>
+            {/*<span>Contributors</span>*/}
+            <span>Verified users</span>
           </div>
         </li>
         <li className={s.aboutFeaturesItem}>

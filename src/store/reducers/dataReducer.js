@@ -15,7 +15,6 @@ export const fetchExperts = createAsyncThunk('data/fetchExperts',
     return data.data.data
   })
 
-
 export const fetchOtherData = createAsyncThunk('data/fetchOtherData',
   async () => {
     const data = await api.post(APIRoutes.getOtherInfo, {}, {
@@ -25,7 +24,8 @@ export const fetchOtherData = createAsyncThunk('data/fetchOtherData',
         }
       }
     );
-    return data.data;
+    console.log(data.data.info)
+    return data.data.info;
   })
 
 export const fetchOneExpert = createAsyncThunk('data/fetchOneExpert',
@@ -79,6 +79,8 @@ const initialState = {
   donateInputValue: '',
   successfullyDonated: null,
   isUserRegistered: true,
+  isOtherDataLoading: false,
+  otherData: null,
 }
 
 const dataReducer = createSlice({
@@ -102,13 +104,11 @@ const dataReducer = createSlice({
             }
           }
         })
-        // if (!isExpert) history.push('/role')
       }
-
     },
 
     setWalletType: (state, action) => {
-      state.walletType = action.payload.toLowerCase()
+      state.walletType = action.payload
     },
 
     setWallet: (state, action) => {
@@ -199,6 +199,19 @@ const dataReducer = createSlice({
       console.log('expert downloading error ')
       state.isOneExpertLoading = false
     })
+
+
+    .addCase(fetchOtherData.pending, (state, action) => {
+      state.isOtherDataLoading = true;
+    })
+    .addCase(fetchOtherData.fulfilled, (state, action) => {
+      state.otherData = action.payload
+      state.isOtherDataLoading = false
+    })
+    .addCase(fetchOtherData.rejected, (state, action) => {
+      console.log('other data downloading error ')
+      state.isOtherDataLoading = false
+    })
 })
 
 export const {
@@ -228,3 +241,5 @@ export const selectRole = (state) => state.DATA.role
 export const selectDonateInputValue = (state) => state.DATA.donateInputValue
 export const selectSuccessfullyDonated = (state) => state.DATA.successfullyDonated
 export const selectIsUserRegistered = (state) => state.DATA.isUserRegistered
+
+export const selectRegisteredUsers = (state) => state.DATA.otherData.userRegistrations
