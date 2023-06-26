@@ -18,10 +18,10 @@ export const store = configureStore({
 
 store.dispatch(fetchExperts())
 store.dispatch(fetchOtherData())
-store.dispatch(setRoundData({  // объект будет потом подтягиваться санкой из АПИ
-  status: 1,
-  timeLeft: 202530,
-}))
+// store.dispatch(setRoundData({  // объект будет потом подтягиваться санкой из АПИ
+//   status: 1,
+//   timeLeft: 202530,
+// }))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -19,7 +19,7 @@ const Clock = () => {
       timer = setInterval(() => {
         setSecondsLeft((prev) => {
           if (prev === 1 ) window.location.reload()
-          return prev - 1;
+          return Math.trunc(prev - 1);
         });
       }, 1000);
       return () => {
@@ -31,7 +31,7 @@ const Clock = () => {
   const days = getTimeString(Math.trunc(secondsLeft / 86400));
   const hours = getTimeString(Math.trunc((secondsLeft - days * 86400) / 3600));
   const minutes = getTimeString(Math.trunc((secondsLeft - days * 86400 - hours * 3600) / 60));
-  const seconds = getTimeString(secondsLeft - days * 86400 - hours * 3600 - minutes * 60);
+  const seconds = getTimeString(Math.trunc(secondsLeft - days * 86400 - hours * 3600 - minutes * 60));
 
   let message;
   let showClock;
