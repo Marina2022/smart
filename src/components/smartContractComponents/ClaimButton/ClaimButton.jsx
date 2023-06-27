@@ -5,7 +5,6 @@ import {selectRound} from "../../../store/reducers/dataReducer";
 
 const ClaimButton = () => {
   const round = useSelector(selectRound)
-
   const showTooltip = () => {
     setIsTooltipShown(true);
   }

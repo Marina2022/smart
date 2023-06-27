@@ -82,7 +82,8 @@ const initialState = {
   isOtherDataLoading: true,
   otherData: null,
   expertRequesteds: null,
-  usersVerified: null
+  usersVerified: null,
+  expertJustRegisteredIsShown: false
 }
 
 const dataReducer = createSlice({
@@ -124,6 +125,11 @@ const dataReducer = createSlice({
           state.role = 'student'
         }
       })
+    },
+
+
+    setJustRegisteredIsShown: (state, action) => {
+      state.expertJustRegisteredIsShown = action.payload
     },
 
     setUserRole: (state, action) => {
@@ -182,7 +188,10 @@ const dataReducer = createSlice({
     .addCase(sendExpert.fulfilled, (state, action) => {
       state.currentExpertId = action.payload
       state.formIsSubmitting = false
-      history.push('/expertProfile/' + state.currentExpertId);
+      //history.push('/expertProfile/' + state.currentExpertId);
+
+      state.expertJustRegisteredIsShown = true
+      history.push('/');
     })
     .addCase(sendExpert.rejected, (state, action) => {
       console.log('expert uploading error ')
@@ -267,7 +276,8 @@ export const {
   setUserRole,
   setDonateInputValue,
   setIsUserRegistered,
-  setFormIsSubmitting
+  setFormIsSubmitting,
+  setJustRegisteredIsShown
 } = dataReducer.actions
 
 export default dataReducer.reducer
@@ -291,3 +301,4 @@ export const selectIsUserRegistered = (state) => state.DATA.isUserRegistered
 export const selectRegistrationRequested = (state) => state.DATA.expertRequesteds
 export const selectRegisteredUsers = (state) => state.DATA.usersVerified
 export const selectIsOtherDataLoading = (state) => state.DATA.isOtherDataLoading
+export const selectExpertJustRegisteredIsShown = (state) => state.DATA.expertJustRegisteredIsShown

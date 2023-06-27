@@ -1,0 +1,67 @@
+.step3_4 {
+  padding: 46px 24px 24px 24px;
+}
+
+.walletTitle {
+  background: linear-gradient(93.06deg, #FC2EF5 8.21%, #5489D8 50.57%, #2CFF64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Cabin', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 36px;
+  margin-bottom: 28px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 23px;
+}
+
+
+.line {
+  width: 166px;
+  height: 2px;
+}
+
+
+.connectModal {
+  text-align: center;
+  z-index: 3;
+  width: 440px;
+  min-height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.walletText {
+  font-size: 20px;
+  margin-bottom: 40px;
+  line-height: 28px;
+}
+
+.button {
+  cursor: pointer;
+  width: 182px;
+  height: 54px;
+  border: 1px solid #CB00DD;
+  border-radius: 25px;
+  color: #CB00DD;
+}

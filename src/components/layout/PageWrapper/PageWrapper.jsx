@@ -107,6 +107,7 @@ const PageWrapper = () => {
           dispatch(setConnectIsShown(false));
         }
       }
+
     }, [isConnected, nativeBalance]
   )
 

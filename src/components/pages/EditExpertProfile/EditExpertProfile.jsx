@@ -144,16 +144,16 @@ const EditExpertProfile = () => {
                   errors.courses = 'Required';
                 }
 
-                if (values.courses.length > 200) {
-                  errors.experience = 'no more than 200 symbols';
+                if (values.courses.length > 500) {
+                  errors.experience = 'no more than 500 symbols';
                 }
 
                 if (!values.experience) {
                   errors.experience = 'Required';
                 }
 
-                if (values.experience.length > 200) {
-                  errors.experience = 'no more than 200 symbols';
+                if (values.experience.length > 500) {
+                  errors.experience = 'no more than 500 symbols';
                 }
                 return errors;
               }}
@@ -219,7 +219,7 @@ const EditExpertProfile = () => {
                      handleBlur(e)
                    }}
             />
-            <div className={s.textAreaBottomLabel}>{values.experience.length}/200</div>
+            <div className={s.textAreaBottomLabel}>{values.experience.length}/500</div>
 
             <div className={s.text}>
               Describe what you teach
@@ -234,7 +234,7 @@ const EditExpertProfile = () => {
                      handleBlur(e)
                    }}
             />
-            <div className={s.textAreaBottomLabel}>{values.courses.length}/200</div>
+            <div className={s.textAreaBottomLabel}>{values.courses.length}/500</div>
 
             <div className={s.addLinksTitle}>Add links to your social media profiles</div>
 

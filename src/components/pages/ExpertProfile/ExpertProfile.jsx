@@ -77,7 +77,6 @@ const ExpertProfile = () => {
           <div className={s.leftBlock}>
             <img className={s.avatar} src={currentExpert.expert.image ? currentExpert.expert.image : ''} alt="avatar"/>
             {currentExpertId === +paramsId && <button className={s.editBtn} onClick={onEditClick}>Edit profile</button>}
-            {/*<button className={s.editBtn} onClick={onEditClick}>Edit profile</button>*/}
             <ShareProfile classname={s.shareProfile}/>
           </div>
           <div className={s.rightBlock}>
@@ -92,7 +91,7 @@ const ExpertProfile = () => {
                              classname={s.expertDonations}/>
           }
 
-          {currentExpertId === +paramsId && < ClaimButton/>}
+          {/*{currentExpertId === +paramsId && < ClaimButton/>}*/}
         </div>
       </div>
     </div>
