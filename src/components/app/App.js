@@ -7,19 +7,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import {EthereumClient, w3mConnectors, w3mProvider} from '@web3modal/ethereum'
 import {Web3Modal} from '@web3modal/react'
 import {configureChains, createConfig, useAccount, useBalance, WagmiConfig} from 'wagmi'
-import {polygonMumbai} from 'wagmi/chains'
+import {polygonMumbai, polygon} from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 
 import {PROJECT_ID} from "../../consts";
 import {ToastContainer} from "react-toastify";
 
-const chains = [polygonMumbai]
+const chains = [polygonMumbai, polygon]
 const projectId = PROJECT_ID; //вот это надо будет засунуть в .env файл
 
 const {publicClient} = configureChains(chains, [w3mProvider({projectId})])
 
 const { webSocketPublicClient } = configureChains(
-  [polygonMumbai],
+  [polygonMumbai, polygon],
   [publicProvider()],
 )
 

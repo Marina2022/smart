@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import EditExpertProfile from "../../pages/EditExpertProfile/EditExpertProfile";
 import ExpertProfile from "../../pages/ExpertProfile/ExpertProfile";
 import UserProfile from "../../pages/UserProfile/UserProfile";
+import {polygonMumbai, polygon} from 'wagmi/chains';
 import {
   useAccount,
   useBalance,
@@ -30,6 +31,14 @@ import Admin from "../../pages/Admin/Admin";
 
 const PageWrapper = () => {
 
+  /**
+  *   const switchToPolygon = useSwitchNetwork({
+        chainId: polygon.id
+      })
+  *         <button
+            onClick={() => switchToPolygon?}
+            >
+  */
   const [congratModalIsShown, showCongratsModal] = useState(false)
   const {address, isConnected} = useAccount()
 
