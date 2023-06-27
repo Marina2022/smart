@@ -19,7 +19,7 @@ const Admin = () => {
         <span className={s.address}><strong>Address</strong></span>
       </div>
       <ul>
-        {
+        { requestedExperts &&
           requestedExperts.map((expert) =>
             <li className={s.wrapper}>
               <span className={s.name}>{expert._name}</span>
