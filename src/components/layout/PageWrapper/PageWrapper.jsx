@@ -100,7 +100,7 @@ const PageWrapper = () => {
   useEffect(() => {
       console.log('isConnected', isConnected)
       if (isConnected) {
-        if (switchNetwork) switchNetwork(80001)
+        if (switchNetwork) switchNetwork(polygon.id)
         if (isRegistered) isRegistered()  // вызываем функцию (если хук useContractRead успел отработать и функция есть)
 
         if (typeof nativeBalance !== "undefined" && typeof usdtBalance !== "undefined") {  // почему-то ошибка вылетает иногда, что data - undefined.

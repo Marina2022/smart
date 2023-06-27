@@ -13,13 +13,13 @@ import { publicProvider } from 'wagmi/providers/public'
 import {PROJECT_ID} from "../../consts";
 import {ToastContainer} from "react-toastify";
 
-const chains = [polygonMumbai, polygon]
+const chains = [polygon]
 const projectId = PROJECT_ID; //вот это надо будет засунуть в .env файл
 
 const {publicClient} = configureChains(chains, [w3mProvider({projectId})])
 
 const { webSocketPublicClient } = configureChains(
-  [polygonMumbai, polygon],
+  [polygon],
   [publicProvider()],
 )
 
