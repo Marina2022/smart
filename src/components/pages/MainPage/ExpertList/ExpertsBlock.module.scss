@@ -8,6 +8,10 @@
   box-shadow: -3px -2px 33px rgba(0, 0, 0, 0.03), 5px 7px 14px rgba(0, 0, 0, 0.05);
   border-radius: 24px;
   padding: 30px 42px 32px;
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 }
 
 .expertsTitle {

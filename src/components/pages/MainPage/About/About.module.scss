@@ -8,6 +8,14 @@
   margin: 78px auto 20px;
   text-align: center;
   color: #36B3B5;
+  @media (max-width: 992px) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
 }
 
 .aboutText {
@@ -17,6 +25,14 @@
   color: #212529;
   max-width: 560px;
   margin: 0 auto 98px;
+
+  @media (max-width: 992px) {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.48px;
+    margin-bottom: 56px;
+  }
+
 }
 
 .aboutFeatures {
@@ -24,10 +40,21 @@
   display: flex;
   justify-content: space-between;
   margin: 0 auto 78px;
+  @media (max-width: 992px) {
+    width: 100%;
+    max-width: 480px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
+  }
 }
 
 .aboutFeaturesItem {
   text-align: center;
+  @media (max-width: 992px) {
+    margin-bottom: 36px;
+    margin-inline: 27px;
+  }
 }
 
 .featureValue {
@@ -36,6 +63,13 @@
   line-height: 24px;
   color: #1F2937;
   margin-bottom: 26px;
+
+  @media (max-width: 992px) {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
 }
 
 .featureName {

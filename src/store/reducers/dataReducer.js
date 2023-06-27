@@ -123,6 +123,7 @@ const dataReducer = createSlice({
         } else {
           state.currentExpertId = null
           state.role = 'student'
+          state.currentExpert = null
         }
       })
     },
