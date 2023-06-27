@@ -220,38 +220,39 @@ const dataReducer = createSlice({
 
       // if (action.payload.roundStarteds[0]) state.round = action.payload.roundStarteds[0]
       // console.log('round', action.payload.roundStarteds[0] )
+      if (action.payload.roundStarteds.length) {
+        const startTime = new Date((action.payload.roundStarteds[0]._startTime * 1000))
+        const endTime = new Date((action.payload.roundStarteds[0]._endTime * 1000))
+        const currentTime = new Date(Date.now())
 
-      const startTime = new Date((action.payload.roundStarteds[0]._startTime * 1000))
-      const endTime = new Date((action.payload.roundStarteds[0]._endTime * 1000))
-      const currentTime = new Date(Date.now())
-
-      let roundData = {}
-      if (currentTime < startTime) {
-        roundData = {
-          status: 0,
-          timeLeft: (startTime - currentTime) / 1000
+        let roundData = {}
+        if (currentTime < startTime) {
+          roundData = {
+            status: 0,
+            timeLeft: (startTime - currentTime) / 1000
+          }
         }
-      }
-      if (currentTime > startTime && startTime < endTime) {
-        roundData = {
-          status: 1,
-          timeLeft: (endTime - currentTime)/1000
+        if (currentTime > startTime && startTime < endTime) {
+          roundData = {
+            status: 1,
+            timeLeft: (endTime - currentTime) / 1000
+          }
         }
-      }
-      if (currentTime > endTime) {
-        roundData = {
-          status: 2,
+        if (currentTime > endTime) {
+          roundData = {
+            status: 2,
+          }
         }
-      }
-      state.round = roundData
+        state.round = roundData
 
 
-      // console.log('_startTime', action.payload.roundStarteds[0]._startTime)
-      // console.log('start time из API = ', startTime.toISOString())
-      // console.log('endTime time из API = ', endTime.toISOString())
-      // console.log('текущий таймстэмп = ', new Date(Date.now()).toISOString())
+        // console.log('_startTime', action.payload.roundStarteds[0]._startTime)
+        // console.log('start time из API = ', startTime.toISOString())
+        // console.log('endTime time из API = ', endTime.toISOString())
+        // console.log('текущий таймстэмп = ', new Date(Date.now()).toISOString())
 
-      if (action.payload.roundStarteds[0]) state.roundData = roundData
+        if (action.payload.roundStarteds[0]) state.roundData = roundData
+      } else state.round = {}
 
       state.isOtherDataLoading = false
       const allExperts = action.payload.registrationRequesteds
