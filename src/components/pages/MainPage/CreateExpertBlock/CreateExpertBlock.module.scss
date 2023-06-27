@@ -9,6 +9,11 @@
   padding: 30px;
   border-radius: 8px;
   border: 1px solid rgba(54, 179, 181, 0.40);
+  @media (max-width: 992px) {
+    max-width: 250px;
+    width: 100%;
+    margin-bottom: 56px;
+  }
 }
 
 .joinBtn {

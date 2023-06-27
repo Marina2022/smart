@@ -83,7 +83,8 @@ const initialState = {
   otherData: null,
   expertRequesteds: null,
   usersVerified: null,
-  expertJustRegisteredIsShown: false
+  expertJustRegisteredIsShown: false,
+  isMobileModalShown: false
 }
 
 const dataReducer = createSlice({
@@ -131,6 +132,9 @@ const dataReducer = createSlice({
 
     setJustRegisteredIsShown: (state, action) => {
       state.expertJustRegisteredIsShown = action.payload
+    },
+    setIsMobileModalShown: (state, action) => {
+      state.isMobileModalShown = action.payload
     },
 
     setUserRole: (state, action) => {
@@ -218,9 +222,7 @@ const dataReducer = createSlice({
       state.otherData = action.payload
       state.usersVerified = action.payload.userRegistrations
 
-      // if (action.payload.roundStarteds[0]) state.round = action.payload.roundStarteds[0]
-      // console.log('round', action.payload.roundStarteds[0] )
-      if (action.payload.roundStarteds.length) {
+      if (action.payload.roundStarteds.length) {  // если roundStarteds в АПИ - не пустой массив
         const startTime = new Date((action.payload.roundStarteds[0]._startTime * 1000))
         const endTime = new Date((action.payload.roundStarteds[0]._endTime * 1000))
         const currentTime = new Date(Date.now())
@@ -279,7 +281,8 @@ export const {
   setDonateInputValue,
   setIsUserRegistered,
   setFormIsSubmitting,
-  setJustRegisteredIsShown
+  setJustRegisteredIsShown,
+  setIsMobileModalShown
 } = dataReducer.actions
 
 export default dataReducer.reducer
@@ -304,3 +307,4 @@ export const selectRegistrationRequested = (state) => state.DATA.expertRequested
 export const selectRegisteredUsers = (state) => state.DATA.usersVerified
 export const selectIsOtherDataLoading = (state) => state.DATA.isOtherDataLoading
 export const selectExpertJustRegisteredIsShown = (state) => state.DATA.expertJustRegisteredIsShown
+export const selectIsMobileModalShown = (state) => state.DATA.isMobileModalShown

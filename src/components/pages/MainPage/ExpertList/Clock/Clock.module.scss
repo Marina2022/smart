@@ -4,6 +4,13 @@
   display: flex;
   justify-content: end;
   align-items: center;
+  order: 2;
+  @media (max-width: 992px) {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
 
 
   .expertsTimeMinutes {
@@ -15,6 +22,10 @@
     color: #374151;
     letter-spacing: 2.2px;
     margin-left: 16px;
+
+    @media (max-width: 992px) {
+      font-size: 16px;
+    }
   }
 }
 

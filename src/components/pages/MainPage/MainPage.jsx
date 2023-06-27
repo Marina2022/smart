@@ -19,6 +19,7 @@ import CreateExpertBlock from "./CreateExpertBlock/CreateExpertBlock";
 import {Link} from "react-router-dom";
 import s from "../../layout/Header/header.module.scss";
 import ExpertCongratulate from "./ExpertCongratulate/ExpertCongratulate";
+import MobileModal from "./MobileModal/MobileModal";
 
 const MainPage = () => {
 
@@ -46,12 +47,13 @@ const MainPage = () => {
     strokeColor="#4481c3"/></div>
 
   return (
-    <>
-      <ExpertCongratulate />
+    <div>
+      <MobileModal/>
+      <ExpertCongratulate/>
       <About/>
       {role !== 'expert' && isRegistered && isConnected && <CreateExpertBlock/>}
       <ExpertList/>
-    </>
+    </div>
   )
 }
 

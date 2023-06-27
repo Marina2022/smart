@@ -13,24 +13,24 @@ const About = () => {
 
   let contributors = 0  // сумма контрибуторов
   let sumOfDonates = 0
-
-    experts.forEach((oneExpert)=>{
-      contributors += oneExpert.events.donates.length  //
-      const donatesSum = oneExpert.events.donates.reduce((sum, elem) => {
-        return sum + +(elem._revardsAmount/10**18).toFixed(2)
-      }, 0)
-      sumOfDonates += donatesSum
-    })
+    //
+    // experts.forEach((oneExpert)=>{
+    //   contributors += oneExpert.events.donates.length  //
+    //   const donatesSum = oneExpert.events.donates.reduce((sum, elem) => {
+    //     return sum + +(elem._revardsAmount/10**18).toFixed(2)
+    //   }, 0)
+    //   sumOfDonates += donatesSum
+    // })
 
 
   return (
-    <>
+    <div className="container">
       <h1 className={s.mainTitle}>Quadratic funding #1 for experts</h1>
       <p className={s.aboutText}>We help experts attract donations and first learners for future training courses!</p>
       <ul className={s.aboutFeatures}>
         <li className={s.aboutFeaturesItem}>
           {/*<div className={s.featureValue}>${(sumOfDonates).toLocaleString('en')}</div>*/}
-          <div className={s.featureValue}>{(experts.length)}</div>
+          <div className={s.featureValue}>{(experts? experts.length : null)}</div>
           <div className={s.featureName}>
             {/*<img className={s.featureImage} src={icon1} alt="feature icon"/>*/}
             <img className={s.featureImage} src={icon2} alt="feature icon"/>
@@ -40,7 +40,7 @@ const About = () => {
         </li>
         <li className={s.aboutFeaturesItem}>
           {/*<div className={s.featureValue}>{contributors}</div>*/}
-          <div className={s.featureValue}>{verifiedUsers.length}</div>
+          <div className={s.featureValue}>{verifiedUsers ? verifiedUsers.length: null}</div>
           <div className={s.featureName}>
             <img className={s.featureImage} src={icon2} alt="feature icon"/>
             {/*<span>Contributors</span>*/}
@@ -55,7 +55,7 @@ const About = () => {
           </div>
         </li>
       </ul>
-    </>
+    </div>
   )
 }
 

@@ -2,7 +2,13 @@ import s from "./header.module.scss";
 import logo from '../../../assets/logo.svg'
 import {Link, useLocation} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {selectIsUserRegistered, selectRole, selectWallet, setConnectIsShown} from "../../../store/reducers/dataReducer";
+import {
+  selectIsUserRegistered,
+  selectRole,
+  selectWallet,
+  setConnectIsShown,
+  setIsMobileModalShown
+} from "../../../store/reducers/dataReducer";
 import {useState} from "react";
 import ConnectModal from "../../pages/MainPage/ConnectModal/ConnectModal";
 import TopProfileModal from "./TopProfileModal/TopProfileModal";
@@ -16,7 +22,11 @@ const Header = () => {
   // const isRegistered = useSelector(selectIsUserRegistered)
   // const isConnected = useSelector(selectWallet)
 
-  const onHeaderBtnClick = () => {
+  const onHeaderBtnClick = (e) => {
+    if(window.innerWidth <= 992) {
+      dispatch(setIsMobileModalShown(true))
+      return
+    }
     if (wallet) {
       setProfileModalIsShown(true);
     } else {

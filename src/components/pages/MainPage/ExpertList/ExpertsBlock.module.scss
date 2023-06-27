@@ -22,6 +22,24 @@
   text-align: center;
   color: #374151;
   margin-bottom: 64px;
+
+  @media (max-width: 992px) {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.expertsNumber {
+  order: 1;
+
+  @media (max-width: 992px) {
+    order: 2;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .expertsDesc {
@@ -29,12 +47,19 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 43px;
+
+  @media (max-width: 992px) {
+    flex-wrap: wrap;
+  }
 }
 
 .expertsListHeader {
   display: flex;
   justify-content: start;
   margin-bottom: 20px;
+  @media (max-width: 992px) {
+    display: none;
+  }
 }
 
 .cellName_header {
