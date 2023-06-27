@@ -3,7 +3,7 @@ import {StatusCodes} from 'http-status-codes'
 import {toast} from 'react-toastify'
 
 const BASE_URL = 'https://api.cyberbox.art/api/v1/'
-const TIMEOUT = 5000
+const TIMEOUT = 10000
 
 const ErrorCodeMapping = {
   [StatusCodes.BAD_REQUEST]: true,
