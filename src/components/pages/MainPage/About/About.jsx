@@ -21,8 +21,6 @@ const About = () => {
     //   }, 0)
     //   sumOfDonates += donatesSum
     // })
-
-
   return (
     <div className="container">
       <h1 className={s.mainTitle}>Quadratic funding #1 for experts</h1>
@@ -30,7 +28,7 @@ const About = () => {
       <ul className={s.aboutFeatures}>
         <li className={s.aboutFeaturesItem}>
           {/*<div className={s.featureValue}>${(sumOfDonates).toLocaleString('en')}</div>*/}
-          <div className={s.featureValue}>{(experts? experts.length : null)}</div>
+          <div className={s.featureValue}>{(experts? experts.length : '0')}</div>
           <div className={s.featureName}>
             {/*<img className={s.featureImage} src={icon1} alt="feature icon"/>*/}
             <img className={s.featureImage} src={icon2} alt="feature icon"/>
@@ -40,7 +38,7 @@ const About = () => {
         </li>
         <li className={s.aboutFeaturesItem}>
           {/*<div className={s.featureValue}>{contributors}</div>*/}
-          <div className={s.featureValue}>{verifiedUsers ? verifiedUsers.length: null}</div>
+          <div className={s.featureValue}>{verifiedUsers ? verifiedUsers.length: '0'}</div>
           <div className={s.featureName}>
             <img className={s.featureImage} src={icon2} alt="feature icon"/>
             {/*<span>Contributors</span>*/}
