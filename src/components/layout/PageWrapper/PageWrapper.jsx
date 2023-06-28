@@ -108,7 +108,7 @@ const PageWrapper = () => {
           dispatch(setWallet({
             number: address,
             balance: ethers.formatUnits(nativeBalance.value, nativeBalance.decimals).slice(0, -15),
-            USDT_balance: ethers.formatUnits(usdtBalance, 18)//.slice(0, -11),
+            USDT_balance: ethers.formatUnits(usdtBalance, 6)//.slice(0, -11),
           }))
         }
         if (connectModalIsShown) {

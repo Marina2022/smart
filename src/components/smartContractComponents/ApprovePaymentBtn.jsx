@@ -21,7 +21,7 @@ const ApprovePaymentBtn = ({step, setStep, expertId}) => {
     address: USDT_ADDRESS,
     abi: USDT_abi,
     functionName: 'approve',
-    args: [CONTRACT_ADDRESS, donateInputValue * 10 ** 18], // donateInputValue - сумма которую пользователь в инпут ввел
+    args: [CONTRACT_ADDRESS, donateInputValue * 10 ** 6], // donateInputValue - сумма которую пользователь в инпут ввел
     onSuccess(data) {
       setStep(2)    // т.е. перейдет на след. шаг, если аппрув удался
       setIsSubmitting(false)

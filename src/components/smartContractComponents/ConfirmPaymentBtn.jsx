@@ -20,7 +20,7 @@ const ConfirmPaymentBtn = ({step, setStep, expertId, setIsExpertVoted}) => {
     address: CONTRACT_ADDRESS,
     abi: MainContract_abi,
     functionName: 'donateInUSDT',
-    args: [expertId, donateInputValue * 10 ** 18],
+    args: [expertId, donateInputValue * 10 ** 6],
     // onSuccess(data) {
 
     //   // Это надо в useWaitForTransaction перенести, чтобы происходило это все, когда транзакция уже пройдет

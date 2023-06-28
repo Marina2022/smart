@@ -51,7 +51,7 @@ const ExpertProfile = () => {
 
     if (expertInfo) {  // если эксперт в списке экспертов уже есть, то можно посчитать его donations и QF bonus
       donations = expertInfo.events.donates.reduce((sum, elem) => {
-        return sum + +(elem._revardsAmount / 10 ** 18).toFixed(2)
+        return sum + +(elem._revardsAmount / 10 ** 6).toFixed(2)
       }, 0)
 
       const globalDonatesNumber = experts.reduce((sum, elem) => {
