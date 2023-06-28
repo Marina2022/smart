@@ -63,7 +63,7 @@ const ExpertProfile = () => {
       if (globalDonatesNumber === 0) {
         bonus = '0'
       } else {
-        bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k EDU3+++'
+        bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k EDU3'
       }
     }
   }
