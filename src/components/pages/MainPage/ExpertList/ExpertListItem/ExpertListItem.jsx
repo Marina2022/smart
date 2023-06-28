@@ -8,7 +8,7 @@ import {PRIZE_FUND} from "../../../../../consts";
 const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
   const contributors = expert.events.donates.length
   const donations = expert.events.donates.reduce((sum, elem) => {
-    return +sum + +(elem._revardsAmount / 10 ** 18)
+    return +sum + +(elem._revardsAmount / 10 ** 6)
 
   }, 0).toFixed(2)
 
