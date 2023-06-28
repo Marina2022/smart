@@ -9,6 +9,23 @@
   line-height: 22px;
   color: #1F2937;
   font-weight: 600;
+
+  @media (max-width: 992px) {
+    font-size: 14px;
+    padding-inline: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.cellNumber {
+  width: 5%;
+
+  @media (max-width: 992px) {
+    order: 1;
+    width: 3%;
+    margin-bottom: 20px;
+  }
 }
 
 .expertsAva {
@@ -18,39 +35,93 @@
   margin-right: 8px;
 }
 
-.cellNumber {
-  width: 5%;
-}
-
 .cellName {
   width: 38%;
   display: flex;
   align-items: center;
+
+  @media (max-width: 992px) {
+    order: 3;
+    width: 55%;
+    margin-bottom: 20px;
+  }
 }
 
 .cellContributors {
   width: 23%;
+
+  @media (max-width: 992px) {
+    order: 5;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .cellDonations {
   width: 17%;
+
+  @media (max-width: 992px) {
+    order: 5;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.donateBtn {
+  @media (max-width: 992px) {
+    order: 4;
+    width: 40%;
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
 }
 
 .cellBonus {
   width: 29%;
+
+  @media (max-width: 992px) {
+    order: 7;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
 }
 
 .cellDonationsSum {
   min-width: 50px;
   display: inline-block;
+
+  @media (max-width: 992px) {
+    min-width: unset;
+  }
 }
+
 
 .cellDonationsPlus {
   color: #11D645;
   margin-left: 8px;
+  @media (max-width: 992px) {
+    order: 5;
+    margin-left: 0px;
+  }
 }
 
 .cellLink {
   cursor: pointer;
   padding-right: 2px;
+}
+
+
+.mobileVisible {
+  display: none;
+  @media (max-width: 992px) {
+    display: inline;
+  }
+
 }

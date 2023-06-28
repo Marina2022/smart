@@ -9,7 +9,7 @@ import {
 import {useState} from "react";
 import DonateModal from "./DonateModal/DonateModal";
 
-const DonateButton = ({expert, classname, bonus}) => {
+const DonateButton = ({expert, classname, bonus, wrapperClassname}) => {
 
   const wallet = useSelector(selectWallet);
   const roundStatus = useSelector(selectRound).status;
@@ -39,15 +39,17 @@ const DonateButton = ({expert, classname, bonus}) => {
   const onDonateClick = () => {
     setIsDonateModalShown(true)
   }
+
+
   return (
-    <div>
+    <div className={wrapperClassname}>
       <div onMouseEnter={() => showTooltip()}
            onMouseLeave={() => hideTooltip()}
-           className={s.buttonWrapper}
+           className={cn(s.buttonWrapper)}
       >
 
         <button className={cn(s.cellButton, classname)}
-                disabled={!wallet || roundStatus !== 1 || isExpertVoted === true || !isUserRegistered}
+                disabled={ window.innerWidth < 992 || !wallet || roundStatus !== 1 || isExpertVoted === true || !isUserRegistered}
                 onClick={onDonateClick}
         >Donate
         </button>

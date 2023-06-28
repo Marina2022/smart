@@ -31,11 +31,20 @@ const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
           {expert.name} {expert.position}
         </a>
       </div>
-      <div className={s.cellContributors}>{contributors}</div>
-      <div className={s.cellDonations}><span className={s.cellDonationsSum}>${donations}</span></div>
-      <div className={s.cellBonus}><span className={s.cellDonationsPlus}>+{bonus}</span></div>
+      <div className={s.cellContributors}>
+        <span className={s.mobileVisible}>Contributors</span>
+        <span>{contributors}</span>
+      </div>
+      <div className={s.cellDonations}>
+        <span className={s.mobileVisible}>Donations</span>
+        <span className={s.cellDonationsSum}>${donations}</span>
+      </div>
+      <div className={s.cellBonus}>
+        <span className={s.mobileVisible}>QF bonus</span>
+        <span className={s.cellDonationsPlus}>+{bonus}</span>
+      </div>
 
-      <DonateButton expert={expert} bonus={bonus}/>
+      <DonateButton expert={expert} bonus={bonus} wrapperClassname={s.donateBtn}/>
       <ExpertInfoModal isExpertModalActive={isExpertModalActive} setExpertModalActive={setExpertModalActive}
                        expert={expert} avatar={avatar} donations={donations} bonus={bonus}/>
     </li>
