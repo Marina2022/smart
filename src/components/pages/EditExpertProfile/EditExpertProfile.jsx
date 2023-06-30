@@ -95,7 +95,8 @@ const EditExpertProfile = () => {
     instagram: '',
     twitter: '',
     webSite: '',
-    address: walletaddress.toLowerCase()
+    //address: walletaddress.toLowerCase() - при обновлении страницы падала ошибка
+    address: walletaddress ? walletaddress.toLowerCase() : ''
   })
 
   const {

@@ -41,7 +41,7 @@ const ExpertListItem = ({expert, number, globalDonatesNumber}) => {
       </div>
       <div className={s.cellBonus}>
         <span className={s.mobileVisible}>QF bonus</span>
-        <span className={s.cellDonationsPlus}>+{bonus}</span>
+        <span className={s.cellPlus}>+{bonus}</span>
       </div>
 
       <DonateButton expert={expert} bonus={bonus} wrapperClassname={s.donateBtn}/>

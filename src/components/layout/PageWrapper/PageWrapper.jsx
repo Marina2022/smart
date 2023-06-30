@@ -104,7 +104,6 @@ const PageWrapper = () => {
         if (isRegistered) isRegistered()  // вызываем функцию (если хук useContractRead успел отработать и функция есть)
 
         if (typeof nativeBalance !== "undefined" && typeof usdtBalance !== "undefined") {  // почему-то ошибка вылетает иногда, что data - undefined.
-
           dispatch(setWallet({
             number: address,
             balance: ethers.formatUnits(nativeBalance.value, nativeBalance.decimals).slice(0, -15),
