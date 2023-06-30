@@ -13,7 +13,7 @@ export const fetchExperts = createAsyncThunk('data/fetchExperts',
         }
       }
     );
-    if(data.data.success === false) throw new Error('fetch experts error')
+    if (data.data.success === false) throw new Error('fetch experts error')
     return data.data.data
 
   })
@@ -28,7 +28,7 @@ export const fetchOtherData = createAsyncThunk('data/fetchOtherData',
       }
     );
     console.log(data.data.info)
-    if(data.data.success === false) throw new Error('fetch other data error')
+    if (data.data.success === false) throw new Error('fetch other data error')
     return data.data.info;
   })
 
@@ -41,7 +41,7 @@ export const fetchOneExpert = createAsyncThunk('data/fetchOneExpert',
         }
       }
     );
-    if(data.data.success === false) throw new Error('fetch one expert error')
+    if (data.data.success === false) throw new Error('fetch one expert error')
     return data.data;
   })
 
@@ -66,7 +66,7 @@ export const sendExpert = createAsyncThunk('data/sendExpert',
         }
       });
     }
-    if(data.data.success === false) {
+    if (data.data.success === false) {
       toast.error('Expert sending error')
       throw new Error('expert sending error')
     }
@@ -186,7 +186,9 @@ const dataReducer = createSlice({
           }
         }
       })
-      state.experts = experts
+
+      // Сортировка по кол-ву донатов
+      state.experts = experts.sort((a, b) => b.events.donates.length - a.events.donates.length)
       state.isLoading = false
 
     })
