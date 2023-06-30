@@ -2,6 +2,7 @@ import {createAsyncThunk, createSelector, createSlice} from '@reduxjs/toolkit'
 import {api} from '../../index'
 import {APIRoutes} from '../../consts'
 import history from "../../browserHistory";
+import {toast} from "react-toastify";
 
 export const fetchExperts = createAsyncThunk('data/fetchExperts',
   async () => {
@@ -12,7 +13,9 @@ export const fetchExperts = createAsyncThunk('data/fetchExperts',
         }
       }
     );
+    if(data.data.success === false) throw new Error('fetch experts error')
     return data.data.data
+
   })
 
 export const fetchOtherData = createAsyncThunk('data/fetchOtherData',
@@ -25,6 +28,7 @@ export const fetchOtherData = createAsyncThunk('data/fetchOtherData',
       }
     );
     console.log(data.data.info)
+    if(data.data.success === false) throw new Error('fetch other data error')
     return data.data.info;
   })
 
@@ -37,6 +41,7 @@ export const fetchOneExpert = createAsyncThunk('data/fetchOneExpert',
         }
       }
     );
+    if(data.data.success === false) throw new Error('fetch one expert error')
     return data.data;
   })
 
@@ -60,6 +65,10 @@ export const sendExpert = createAsyncThunk('data/sendExpert',
           'x-api-key': '74803c46-6f65-4aac-90b1-44d147938011'
         }
       });
+    }
+    if(data.data.success === false) {
+      toast.error('Expert sending error')
+      throw new Error('expert sending error')
     }
     return sendData.expertId;
   })
