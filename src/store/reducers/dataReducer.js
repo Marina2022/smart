@@ -71,6 +71,7 @@ export const sendExpert = createAsyncThunk('data/sendExpert',
       toast.error('Expert sending error')
       throw new Error('expert sending error')
     }
+
     return sendData.expertId;
   })
 
@@ -109,6 +110,9 @@ const dataReducer = createSlice({
 
       if (action.payload === false) {
         let isExpert = false
+        state.currentExpertId = null
+        state.currentExpert = null
+
         state.experts.forEach((expert) => {
           if (state.wallet) {
             if (expert.address === state.wallet.number.toLowerCase()) {

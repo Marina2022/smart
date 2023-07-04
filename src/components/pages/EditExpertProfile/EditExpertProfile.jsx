@@ -37,7 +37,6 @@ const EditExpertProfile = () => {
     } else {
       resetCurrentExpertData()
     }
-
   }, [])
 
   let walletaddress
