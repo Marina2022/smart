@@ -16,6 +16,7 @@ import {
 import {useWaitForTransaction,} from 'wagmi'
 import {useEffect, useState} from "react";
 import {
+  resetCurrentExpertData,
   selectConnectIsShown, selectIsUserRegistered,
   setConnectIsShown,
   setIsUserRegistered,
@@ -109,7 +110,9 @@ const PageWrapper = () => {
             balance: ethers.formatUnits(nativeBalance.value, nativeBalance.decimals).slice(0, -15),
             USDT_balance: ethers.formatUnits(usdtBalance, 6)//.slice(0, -11),
           }))
+          dispatch(resetCurrentExpertData())
         }
+
         if (connectModalIsShown) {
           dispatch(setConnectIsShown(false));
         }
