@@ -3,6 +3,16 @@
   margin: 0 auto;
   padding-top: 80px;
 
+  @media (max-width: 1400px) {
+    max-width: 90%;
+    padding-top: 16px;
+  }
+
+
+  @media (max-width: 992px) {
+    justify-content: center;
+  }
+
 }
 
 .contentWrapper {
@@ -11,6 +21,11 @@
   margin-left: auto;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 922px) {
+    justify-content: center;
+  }
+
 }
 
 .mainContent {
@@ -24,6 +39,10 @@
   line-height: 24px;
   color: #1F2937;
   margin-bottom: 32px;
+
+  @media (max-width: 922px) {
+    margin-bottom: 24px;
+  }
 }
 
 .text {
@@ -40,4 +59,10 @@
   letter-spacing: 0.02em;
   color: #528FD2;
   cursor: pointer;
+
+  @media (max-width: 922px) {
+    display: none;
+  }
+
+
 }

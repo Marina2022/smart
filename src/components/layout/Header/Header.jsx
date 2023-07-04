@@ -12,6 +12,7 @@ import {
 import {useState} from "react";
 import ConnectModal from "../../pages/MainPage/ConnectModal/ConnectModal";
 import TopProfileModal from "./TopProfileModal/TopProfileModal";
+import Burger from "./Burger/Burger";
 
 const Header = () => {
   const wallet = useSelector(selectWallet);
@@ -23,10 +24,10 @@ const Header = () => {
   // const isConnected = useSelector(selectWallet)
 
   const onHeaderBtnClick = (e) => {
-    if(window.innerWidth <= 992) {
-      dispatch(setIsMobileModalShown(true))
-      return
-    }
+    // if(window.innerWidth <= 992) {
+    //   dispatch(setIsMobileModalShown(true))
+    //   return
+    // }
     if (wallet) {
       setProfileModalIsShown(true);
     } else {
@@ -46,7 +47,7 @@ const Header = () => {
     <header className={s.mainHeader}>
       <div className="container">
         <div className={s.headerWrapper}>
-          {showMostOfHeader && <Link to="/"><img src={logo} alt="logo"/></Link>}
+          {<Link to="/"><img src={logo} alt="logo"/></Link>}
           {showMostOfHeader && <div className={s.headerMenu}>
             <Link to="/" className={s.headerLink_active}>Donation</Link>
             <a href="https://docs.cyberbox.art/" className={s.headerLink}>About</a>
@@ -60,7 +61,11 @@ const Header = () => {
                                        onClick={onHeaderBtnClick}
           >{
             !wallet ? `CONNECT` : `${walletStringValue}`}</button>}
+
+          <Burger/>
         </div>
+
+
         {
           <TopProfileModal profileModalIsShown={profileModalIsShown} setProfileModalIsShown={setProfileModalIsShown}
                            classname={s.headerProfilePopup} walletNumber={walletStringValue}/>

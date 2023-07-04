@@ -12,18 +12,18 @@
 
   @media (max-width: 992px) {
     font-size: 14px;
-    padding-inline: 15px;
+    padding-inline: 10px;
     flex-wrap: wrap;
     justify-content: center;
   }
 }
 
 .cellNumber {
-  width: 5%;
+  width: 7%;
 
   @media (max-width: 992px) {
     order: 1;
-    width: 3%;
+    width: 7%;
     margin-bottom: 20px;
   }
 }
@@ -33,6 +33,7 @@
   height: 24px;
   border-radius: 50%;
   margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .cellName {
@@ -74,7 +75,7 @@
 .donateBtn {
   @media (max-width: 992px) {
     order: 4;
-    width: 40%;
+    width: 35%;
     margin-left: auto;
     margin-bottom: 20px;
   }

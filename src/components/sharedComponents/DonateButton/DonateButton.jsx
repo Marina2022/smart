@@ -49,7 +49,8 @@ const DonateButton = ({expert, classname, bonus, wrapperClassname}) => {
       >
 
         <button className={cn(s.cellButton, classname)}
-                disabled={ window.innerWidth < 992 || !wallet || roundStatus !== 1 || isExpertVoted === true || !isUserRegistered}
+                // disabled={ window.innerWidth < 992 || !wallet || roundStatus !== 1 || isExpertVoted === true || !isUserRegistered}
+                disabled={ !wallet || roundStatus !== 1 || isExpertVoted === true || !isUserRegistered}
                 onClick={onDonateClick}
         >Donate
         </button>

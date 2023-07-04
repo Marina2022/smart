@@ -5,15 +5,39 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+
+  @media (max-width: 1400px) {
+    max-width: 90%;
+    width: 100%;
+    padding-top: 16px;
+    padding-inline: 15px;
+  }
+
+  @media (max-width: 922px) {
+    text-align: center;
+    flex-wrap: wrap;
+    max-width: 370px;
+
+
+
+  }
 }
 
 .mainBlock {
   width: 551px;
   display: flex;
+
+  @media (max-width: 922px) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }
 
 .expertDonations {
   margin: 0;
+  @media (max-width: 922px) {
+    margin: 10px auto 111px;
+  }
 }
 
 .avatar {
@@ -21,10 +45,23 @@
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
+
+  @media (max-width: 922px) {
+    order: 10;
+    margin-bottom: 24px;
+  }
+
 }
 
 .leftBlock {
   width: 116px;
+
+  @media (max-width: 922px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .editBtn {
@@ -42,18 +79,55 @@
   letter-spacing: 0.02em;
   color: #1F2937;
   margin-top: 36px;
+
+  @media (max-width: 922px) {
+    margin-right: 24px;
+    margin-top: 0;
+  }
+
 }
 
 .rightBlock {
   margin-left: 36px;
+
+  @media (max-width: 922px) {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .text {
   margin-top: 24px;
+
+  @media (max-width: 922px) {
+
+  }
+
 }
 
 .shareProfile {
   margin-top: 16px;
+  @media (max-width: 922px) {
+    margin-top: 0;
+  }
+
 }
 
+.donationsBlock {
+  @media (max-width: 922px) {
+    width: 100%;
+  }
+}
+
+.editBtnShareWrapper {
+  @media (max-width: 922px) {
+    display: flex;
+    order: 0;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-inline: auto;
+  }
+
+}
 

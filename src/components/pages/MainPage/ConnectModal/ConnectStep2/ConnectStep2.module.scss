@@ -1,6 +1,11 @@
 .step2 {
   padding: 20px 69px 40px;
   position: relative;
+
+  @media (max-width: 992px) {
+    padding: 0;
+  }
+
 }
 
 .title {

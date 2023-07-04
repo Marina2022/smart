@@ -11,7 +11,6 @@ import WithdrawBtn from "../../../smartContractComponents/WithdrawBtn/WithdrawBt
 import {
   selectCurrentExpertId,
   selectRole,
-  selectRound,
   selectSuccessfullyDonated,
   selectWallet
 } from "../../../../store/reducers/dataReducer";
@@ -37,7 +36,6 @@ const TopProfileModal = ({profileModalIsShown, setProfileModalIsShown, classname
     if (e.key === 'Escape')
       setProfileModalIsShown(false);
   }
-
 
   const {disconnect} = useDisconnect()
 

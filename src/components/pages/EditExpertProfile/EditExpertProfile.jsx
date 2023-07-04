@@ -11,7 +11,6 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {useContractWrite, useWaitForTransaction} from "wagmi";
 import {CONTRACT_ADDRESS, MainContract_abi} from "../../../consts";
-import {toast} from "react-toastify";
 
 const EditExpertProfile = () => {
   const expertId = useSelector(selectCurrentExpertId)
@@ -19,7 +18,7 @@ const EditExpertProfile = () => {
   const formIsSubmitting = useSelector(selectFormIsSubmitting)
 
   const onBackClick = () => {
-    navigate('/')
+    navigate(-1)
   }
 
   useEffect(() => {

@@ -88,6 +88,7 @@ const DonateModal = ({expert, isDonateModalShown, setIsDonateModalShown, bonus, 
               <span>Balance</span>
               <div className={s.bonusWrapper}><span>${wallet.USDT_balance === '' ? '0' : Number(wallet.USDT_balance).toFixed(2)}</span></div>
             </div>
+            <div className={s.mobileVisible}></div>
             <div className={s.buttonWrapper}>
               <ApprovePaymentBtn step={step} setStep={setStep} expertId={expert.events.id}/>
               <ConfirmPaymentBtn step={step} setStep={setStep} expertId={expert.events.id} setIsExpertVoted={setIsExpertVoted}/>

@@ -1,6 +1,11 @@
 .container {
   width: 616px;
   margin: 0 auto;
+
+  @media (max-width: 616px) {
+    width: 100%;
+    padding-inline: 15px;
+  }
 }
 
 .form {
@@ -11,6 +16,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 28px;
+
+  @media (max-width: 922px) {
+    flex-wrap: wrap;
+  }
 }
 
 .topInput {
@@ -22,6 +31,11 @@
 
   &::placeholder {
     color: #D1D5DB;
+  }
+
+  @media (max-width: 922px) {
+    width: 100%;
+    margin-bottom: 8px;
   }
 }
 
@@ -37,6 +51,11 @@
   &::placeholder {
     color: #D1D5DB;
   }
+
+  @media (max-width: 922px) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 }
 
 .title {
@@ -47,6 +66,10 @@
   margin-bottom: 32px;
   text-align: center;
   margin-top: 74px;
+
+  @media (max-width: 922px) {
+    margin-top: 24px;
+  }
 }
 
 .profileImageLabel {
@@ -70,12 +93,15 @@
 }
 
 .fileInputLabel {
-  display:  block;
+  display: block;
   margin-bottom: 28px;
   width: 95px;
   height: 95px;
   background: 50% / cover;
   background-image: url(../../../assets/form/fileBtn.svg);
+  @media (max-width: 922px) {
+    margin-bottom: 16px;
+  }
 }
 
 .text {
@@ -84,6 +110,12 @@
   line-height: 20px;
   color: #2B1E3B;
   margin-bottom: 8px;
+
+  @media (max-width: 922px) {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
 }
 
 .moreText {
@@ -92,6 +124,9 @@
   line-height: 20px;
   color: #4B5563;
   margin-bottom: 8px;
+  @media (max-width: 922px) {
+    margin-bottom: 18px;
+  }
 }
 
 .textAreaBottomLabel {
@@ -102,6 +137,9 @@
   color: #9CA3AF;
   margin-top: 10px;
   margin-bottom: 30px;
+  @media (max-width: 922px) {
+    margin-bottom: 20px;
+  }
 }
 
 .addLinksTitle {
@@ -123,9 +161,12 @@
   padding: 16px 16px 16px 114px;
   border: #F3F4F6 1px solid;
 
-
   &::placeholder {
     color: #D1D5DB;
+  }
+
+  @media (max-width: 922px) {
+    width: 100%;
   }
 }
 
@@ -201,6 +242,14 @@
   width: 284px;
   margin: 40px auto 170px;
   border-radius: 25px;
+
+  @media (max-width: 922px) {
+    flex-wrap: wrap;
+    width: 95%;
+    justify-content: center;
+    margin-bottom: 111px;
+
+  }
 }
 
 .backBtn {
@@ -213,6 +262,11 @@
   line-height: 20px;
   color: #1F2937;
   cursor: pointer;
+
+  @media (max-width: 922px) {
+    margin-bottom: 10px;
+    margin-inline: 8px;
+  }
 }
 
 .continueBtn {
@@ -229,6 +283,11 @@
   color: #FFFFFF;
   background-color: #CB00DD;
   cursor: pointer;
+
+
+  @media (max-width: 922px) {
+    margin-inline: 8px;
+  }
 
   &:active {
     background-color: darken(#CB00DD, 10%);

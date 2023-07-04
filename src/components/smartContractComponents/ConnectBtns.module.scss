@@ -6,6 +6,12 @@
   border-radius: 25px;
   color: #CB00DD;
 
+  @media (max-width: 922px) {
+    width: 136px;
+    height: 48px;
+  }
+
+
   &:disabled {
     color: #9CA3AF;
     border-color: #9CA3AF;

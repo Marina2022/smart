@@ -2,7 +2,7 @@ import s from './CreateExpertBlock.module.scss';
 import {Link} from "react-router-dom";
 
 const onLinkClick = (e) => {
-  if (window.innerWidth <= 992) e.preventDefault()
+  //if (window.innerWidth <= 992) e.preventDefault()
 }
 
 const CreateExpertBlock = () => {

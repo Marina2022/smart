@@ -2,14 +2,15 @@
   display: flex;
   width: 350px;
   justify-content: space-between;
-
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
   color: #1F2937;
-
   margin-inline: auto;
-  margin-bottom: 40px;
+
+  @media (max-width: 922px) {
+    width: 250px;
+  }
 }
 
 .expertDonationsValue {
@@ -20,9 +21,35 @@
   line-height: 36px;
   color: #1F2937;
   margin-bottom: 10px;
+  @media (max-width: 922px) {
+    font-size: 22px;
+  }
+
+
 }
 
 .expertDonationsDonates {
-  border-right: 1px solid #D1D5DB;
-  padding-right: 42px;
+  //border-right: 1px solid #D1D5DB;
+  //padding-right: 42px;
+}
+
+.line {
+  width: 1px;
+  height: 68px;
+  background-color: #D1D5DB;
+}
+
+
+.expertDonationsText {
+  @media (max-width: 922px) {
+    font-size: 14px;
+  }
+}
+
+.mainWrapper {
+  @media (max-width: 922px) {
+    padding: 16px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+  }
 }

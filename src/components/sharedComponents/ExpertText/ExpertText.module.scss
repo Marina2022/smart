@@ -13,4 +13,12 @@
   font-weight: 400;
   margin-bottom: 15px;
   max-width: 400px;
+
+  @media (max-width: 922px) {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+
 }

@@ -14,6 +14,7 @@ export const fetchExperts = createAsyncThunk('data/fetchExperts',
       }
     );
     if (data.data.success === false) throw new Error('fetch experts error')
+
     return data.data.data
 
   })

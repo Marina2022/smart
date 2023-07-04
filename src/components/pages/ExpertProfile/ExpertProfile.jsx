@@ -77,22 +77,30 @@ const ExpertProfile = () => {
         <div className={s.mainBlock}>
           <div className={s.leftBlock}>
             <img className={s.avatar} src={currentExpert.expert.image ? currentExpert.expert.image : ''} alt="avatar"/>
-            {currentExpertId === +paramsId && <button className={s.editBtn} onClick={onEditClick}>Edit profile</button>}
-            <ShareProfile classname={s.shareProfile}/>
+
+            <div className={s.editBtnShareWrapper}>
+              {currentExpertId === +paramsId &&
+                <button className={s.editBtn} onClick={onEditClick}>Edit profile</button>}
+              <ShareProfile classname={s.shareProfile}/>
+            </div>
           </div>
           <div className={s.rightBlock}>
-            <ExpertTitle expert={currentExpert.expert}/>
+            <div className={s.mobile}>
+              <ExpertTitle expert={currentExpert.expert}/>
+
+            </div>
+
             <ExpertText expert={currentExpert.expert} classname={s.text}/>
           </div>
         </div>
-        <div>
+        <div className={s.donationsBlock}>
           {
             expertInfo &&
-            <ExpertDonations donations={donations === 0 ? '0' : donations} bonus={bonus === 0 ? '0' : `$${bonus}`}
-                             classname={s.expertDonations}/>
+            <ExpertDonations  donations={donations === 0 ? '0' : donations} bonus={bonus === 0 ? '0' : `$${bonus}`}
+                             classname={s.expertDonations}
+                             showClaimButton={currentExpertId === +paramsId}
+            />
           }
-
-          {/*{currentExpertId === +paramsId && < ClaimButton/>}*/}
         </div>
       </div>
     </div>
