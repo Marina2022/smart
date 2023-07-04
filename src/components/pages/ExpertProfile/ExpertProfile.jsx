@@ -44,7 +44,7 @@ const ExpertProfile = () => {
   let bonus
 
   let expertInfo = null
-  if (wallet) {
+  // if (wallet) {
     expertInfo = experts.find((expert) => {
       return expert.id === +paramsId
     })
@@ -66,7 +66,7 @@ const ExpertProfile = () => {
         bonus = (PRIZE_FUND * expertInfo.events.donates.length / globalDonatesNumber).toFixed(1) + 'k EDU3'
       }
     }
-  }
+  // }
 
   if (isCurrentExpertLoading) return <div style={{'textAlign': 'center', 'padding': 50}}><RotatingLines
     strokeColor="#4481c3"/></div>

@@ -169,6 +169,11 @@ const dataReducer = createSlice({
     setIsUserRegistered: (state, action) => {
       state.isUserRegistered = action.payload
     },
+
+    resetCurrentExpertData: (state, action) => {
+      state.currentExpertId = null
+      state.currentExpert = null
+    },
   },
 
   extraReducers: (builder) => builder
@@ -294,7 +299,8 @@ export const {
   setIsUserRegistered,
   setFormIsSubmitting,
   setJustRegisteredIsShown,
-  setIsMobileModalShown
+  setIsMobileModalShown,
+  resetCurrentExpertData
 } = dataReducer.actions
 
 export default dataReducer.reducer

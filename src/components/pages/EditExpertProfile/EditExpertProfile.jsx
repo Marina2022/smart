@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from "react";
 import cn from "classnames";
 import {useNavigate} from "react-router-dom";
 import {
+  fetchOneExpert, resetCurrentExpertData,
   selectCurrentExpert,
   selectCurrentExpertId, selectFormIsSubmitting, selectWallet,
   sendExpert, setFormIsSubmitting, setUserRole
@@ -21,15 +22,22 @@ const EditExpertProfile = () => {
     navigate(-1)
   }
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    if (currentExpert) {
+    if (expertId) {   // было if currentExpert
       if (currentExpert.expert.image) {
         refUser.current.style.backgroundImage = `url(${currentExpert.expert.image})`;
         refUser.current.style.borderRadius = '50%';
       }
     }
-
     dispatch(setFormIsSubmitting(false))
+    if (expertId){
+      dispatch(fetchOneExpert(expertId))
+    } else {
+      resetCurrentExpertData()
+    }
+
   }, [])
 
   let walletaddress
@@ -54,11 +62,12 @@ const EditExpertProfile = () => {
     }
   }
 
-  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   let initialValues
-  if (currentExpert) {
+
+
+  if (currentExpert && currentExpert.expert.id === expertId) {
     initialValues = {
       firstName: currentExpert.expert.name,
       secondName: currentExpert.expert.position,
@@ -70,6 +79,7 @@ const EditExpertProfile = () => {
       website: currentExpert.expert.webSite,
     }
   } else {
+
     initialValues = {
       firstName: '',
       secondName: '',

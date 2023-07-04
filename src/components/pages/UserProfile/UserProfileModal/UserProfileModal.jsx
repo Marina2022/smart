@@ -1,6 +1,8 @@
 import s from './UserProfileModal.module.scss'
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
+import {resetCurrentExpertData} from "../../../../store/reducers/dataReducer";
+import {useDispatch} from "react-redux";
 
 const UserProfileModal = ({isModalActive, setIsModalActive}) => {
   const navigate = useNavigate()
@@ -15,6 +17,14 @@ const UserProfileModal = ({isModalActive, setIsModalActive}) => {
     return () => document.removeEventListener('keydown', onKeydown)
   }, [])
 
+
+  const dispatch = useDispatch()
+  const onYesClick = () => {
+    dispatch(resetCurrentExpertData())
+    navigate('/edit')
+  }
+
+
   return (
     isModalActive && <div>
       <div className="overlayTransparent" onClick={() => setIsModalActive(false)}></div>
@@ -22,7 +32,7 @@ const UserProfileModal = ({isModalActive, setIsModalActive}) => {
         <h3 className={s.title}>Are you sure you want to switch to expert?</h3>
         <p className={s.text}>It will not be possible to switch back to the student</p>
         <div className={s.buttonsWrapper}>
-          <button className={s.switchBtn} onClick={() => navigate('/edit')}>Yes, switch</button>
+          <button className={s.switchBtn} onClick={onYesClick}>Yes, switch</button>
           <button className={s.noBtn} onClick={() => setIsModalActive(false)}>No</button>
         </div>
       </div>

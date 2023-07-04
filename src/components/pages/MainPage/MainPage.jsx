@@ -14,6 +14,9 @@ import {useEffect} from "react";
 import CreateExpertBlock from "./CreateExpertBlock/CreateExpertBlock";
 import ExpertCongratulate from "./ExpertCongratulate/ExpertCongratulate";
 import MobileModal from "./MobileModal/MobileModal";
+import {api} from "../../../index";
+import {APIRoutes} from "../../../consts";
+import {logDOM} from "@testing-library/react";
 
 const MainPage = () => {
 
@@ -23,27 +26,22 @@ const MainPage = () => {
   let walletAddress = null
   if (wallet) walletAddress = wallet.number
 
-
   useEffect(() => {
     dispatch(fetchExperts())
   }, [walletAddress])
 
-
   const isMainPageLoading = useSelector(selectIsLoading);
   const isOtherDataLoading = useSelector(selectIsOtherDataLoading);
-
   const role = useSelector(selectRole);
   const isRegistered = useSelector(selectIsUserRegistered)
   const isConnected = useSelector(selectWallet)
 
-
   if (isMainPageLoading || isOtherDataLoading) return <div style={{'textAlign': 'center', 'padding': 50}}><RotatingLines
     strokeColor="#4481c3"/></div>
 
-
   return (
     <div>
-      <MobileModal/>
+       <MobileModal/>
       <ExpertCongratulate/>
       <About/>
       {role !== 'expert' && isRegistered && isConnected && <CreateExpertBlock/>}
