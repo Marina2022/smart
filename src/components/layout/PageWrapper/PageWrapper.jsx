@@ -64,6 +64,7 @@ const PageWrapper = () => {
     onSuccess(data) {
       dispatch(setIsUserRegistered(true)) //кнопочка исчезает
       showCongratsModal(true)  // появляется модалка с поздравлениями
+      window.location.reload()
     },
     onError(error) {
       console.log('Error', error)
@@ -116,7 +117,7 @@ const PageWrapper = () => {
           dispatch(setConnectIsShown(false));
         }
       }
-    }, [isConnected, nativeBalance]
+    }, [isConnected, nativeBalance, isRegistered]
   )
 
   return (
