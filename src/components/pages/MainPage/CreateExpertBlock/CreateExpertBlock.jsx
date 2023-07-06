@@ -17,10 +17,9 @@ const CreateExpertBlock = () => {
 
   const dispatch = useDispatch()
 
-  useEffect(()=>{
-    dispatch(resetCurrentExpertData())
-  }, [])
-
+  // useEffect(()=>{
+  //   dispatch(resetCurrentExpertData())
+  // }, [])
 
   return (
     <div className={s.createExpertBlock}>

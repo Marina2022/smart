@@ -1,9 +1,15 @@
 import s from './Congratulations.module.scss'
 import closeBtn from "../../../../assets/closeConnect.svg";
+import {resetCurrentExpertData} from "../../../../store/reducers/dataReducer";
+import {useDispatch} from "react-redux";
 
 const Congratulations = ({showCongratsModal}) => {
+
+  const dispatch = useDispatch()
+
   const onClose = () => {
     showCongratsModal(false);
+    // dispatch(resetCurrentExpertData())
   }
 
   return (

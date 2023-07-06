@@ -112,7 +112,6 @@ const PageWrapper = () => {
           }))
           dispatch(resetCurrentExpertData())
         }
-
         if (connectModalIsShown) {
           dispatch(setConnectIsShown(false));
         }

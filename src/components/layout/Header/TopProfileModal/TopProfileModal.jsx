@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import s from './TopProfileModal.module.scss'
 
@@ -9,6 +9,7 @@ import greenRound from '../../../../assets/wallet-green-round.svg'
 import onBtn from '../../../../assets/onBtn.svg'
 import WithdrawBtn from "../../../smartContractComponents/WithdrawBtn/WithdrawBtn";
 import {
+  resetCurrentExpertData,
   selectCurrentExpertId,
   selectRole,
   selectSuccessfullyDonated,
@@ -39,7 +40,10 @@ const TopProfileModal = ({profileModalIsShown, setProfileModalIsShown, classname
 
   const {disconnect} = useDisconnect()
 
+  const dispatch = useDispatch()
+
   const onOffClick = () => {
+    dispatch(resetCurrentExpertData)
     navigate('/')
     disconnect()
     window.location.reload()

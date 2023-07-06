@@ -39,8 +39,36 @@ const MainPage = () => {
   if (isMainPageLoading || isOtherDataLoading) return <div style={{'textAlign': 'center', 'padding': 50}}><RotatingLines
     strokeColor="#4481c3"/></div>
 
+  const onGavaClick = async () => {
+    const sendData = {
+      expertId: '1688588274',
+      info: {
+        name: 'Akinsola',
+        position: 'Toby',
+        experience: "",
+        learnDescription: '',
+        telegram: '',
+        instagram: '',
+        twitter: '',
+        webSite: '',
+        address: '0x39cebc8972e5c57e6913cbaff4178f0e37d7d7be'
+      }
+    }
+    api.post(APIRoutes.sendExpert, sendData, {
+
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': '74803c46-6f65-4aac-90b1-44d147938011'
+      }
+    }).then(resp => console.log(resp))
+  }
+
   return (
     <div>
+
+      {/*<button onClick={onGavaClick}>Отправь Акутагаву</button>*/}
+
+
        <MobileModal/>
       <ExpertCongratulate/>
       <About/>
