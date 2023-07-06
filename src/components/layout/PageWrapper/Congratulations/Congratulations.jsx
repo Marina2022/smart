@@ -9,7 +9,8 @@ const Congratulations = ({showCongratsModal}) => {
 
   const onClose = () => {
     showCongratsModal(false);
-    // dispatch(resetCurrentExpertData())
+    dispatch(resetCurrentExpertData())
+    window.location.reload()
   }
 
   return (
