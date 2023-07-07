@@ -1,7 +1,5 @@
 import s from './CreateExpertBlock.module.scss';
-import {Link, useNavigate} from "react-router-dom";
-import {resetCurrentExpertData} from "../../../../store/reducers/dataReducer";
-import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
 
@@ -27,7 +25,8 @@ const CreateExpertBlock = () => {
       <div>
         Create your profile now
       </div>
-      <Link to="/edit" onClick={onLinkClick} className={s.joinBtn}>Join now</Link>
+      {/*<Link to="/edit" onClick={onLinkClick} className={s.joinBtn}>Join now</Link>*/}
+      <a href="/edit" className={s.joinBtn}>Join now</a>
     </div>
   )
 };

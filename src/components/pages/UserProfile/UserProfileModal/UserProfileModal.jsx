@@ -33,7 +33,8 @@ const UserProfileModal = ({isModalActive, setIsModalActive}) => {
         <h3 className={s.title}>Are you sure you want to switch to expert?</h3>
         <p className={s.text}>It will not be possible to switch back to the student</p>
         <div className={s.buttonsWrapper}>
-          <button className={s.switchBtn} onClick={onYesClick}>Yes, switch</button>
+          {/*<button className={s.switchBtn} onClick={onYesClick}>Yes, switch</button>*/}
+          <a href={'/edit'} className={s.switchBtn}git >Yes, switch</a>
           <button className={s.noBtn} onClick={() => setIsModalActive(false)}>No</button>
         </div>
       </div>

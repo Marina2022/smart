@@ -82,7 +82,9 @@ const ExpertProfile = () => {
 
             <div className={s.editBtnShareWrapper}>
               {currentExpertId === +paramsId &&
-                <button className={s.editBtn} onClick={onEditClick}>Edit profile</button>}
+                // <button  className={s.editBtn} onClick={onEditClick}>Edit profile</button>}
+                // ссылка (не Link) - специально, чтобы обновлялась страница:
+                <a href="/edit" className={s.editBtn} >Edit profile</a>}
               <ShareProfile classname={s.shareProfile}/>
             </div>
           </div>
