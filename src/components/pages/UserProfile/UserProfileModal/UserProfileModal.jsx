@@ -22,6 +22,7 @@ const UserProfileModal = ({isModalActive, setIsModalActive}) => {
   const onYesClick = () => {
     dispatch(resetCurrentExpertData())
     navigate('/edit')
+    window.location.reload()
   }
 
 

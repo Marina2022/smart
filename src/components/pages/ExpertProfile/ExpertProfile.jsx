@@ -34,7 +34,9 @@ const ExpertProfile = () => {
   const navigate = useNavigate()
 
   const onEditClick = () => {
+
     navigate('/edit')
+    window.location.reload() // почему мои данные теряются?
   }
 
   const wallet = useSelector(selectWallet)

@@ -33,6 +33,7 @@ const EditExpertProfile = () => {
     }
     dispatch(setFormIsSubmitting(false))
     if (expertId){
+      console.log('fetch')
       dispatch(fetchOneExpert(expertId))
     } else {
       resetCurrentExpertData()

@@ -41,17 +41,17 @@ const MainPage = () => {
 
   const onGavaClick = async () => {
     const sendData = {
-      expertId: '1688588274',
+      expertId: 1688588271,  // id мое
       info: {
-        name: 'Akinsola',
-        position: 'Toby',
-        experience: "",
-        learnDescription: '',
+        name: 'Marina',
+        position: 'Marinova',
+        experience: "test experience",
+        learnDescription: 'test',
         telegram: '',
         instagram: '',
         twitter: '',
         webSite: '',
-        address: '0x39cebc8972e5c57e6913cbaff4178f0e37d7d7be'
+        address: '0x4cE1F872FC453C0C7f23eD43D1279f426F45Fa42'.toLowerCase()
       }
     }
     api.post(APIRoutes.sendExpert, sendData, {
@@ -67,7 +67,6 @@ const MainPage = () => {
     <div>
 
       {/*<button onClick={onGavaClick}>Отправь Акутагаву</button>*/}
-
 
        <MobileModal/>
       <ExpertCongratulate/>
